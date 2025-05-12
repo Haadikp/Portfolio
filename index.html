@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <title>Hadi K P</title>
+    <style>
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(45deg, #4f46e5, #06b6d4);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav x-data="{ isOpen: false }" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#hero" class="text-xl font-bold gradient-text">Hadi K P</a>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-600 transition">About</a>
+                    <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-600 transition">Skills</a>
+                    <a href="#education" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-600 transition">Education</a>
+                    <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium hover:text-indigo-600 transition">Projects</a>
+                    <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 transition">Contact</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-indigo-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div x-show="isOpen" class="md:hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" @click="isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 transition">About</a>
+                <a href="#skills" @click="isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 transition">Skills</a>
+                <a href="#education" @click="isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 transition">Education</a>
+                <a href="#projects" @click="isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 transition">Projects</a>
+                <a href="#contact" @click="isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-600 text-white hover:bg-indigo-700 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-16 pb-12 px-4">
+        <div class="max-w-7xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative mb-8 inline-block">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mx-auto border-4 border-indigo-500 shadow-xl">
+                    <img src="Images/Hadi K P .jpg" alt="Hadi K P" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-3 -right-3 bg-indigo-600 text-white rounded-full p-3 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                Hi, I'm <span class="gradient-text">Hadi K P</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                MCA Student
+            </p>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Software Engineer & Data Science Enthusiast
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="px-8 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                    View My Work
+                </a>
+                <a href="#contact" class="px-8 py-3 bg-white text-indigo-600 border border-indigo-600 rounded-lg shadow-md hover:bg-gray-50 transition transform hover:-translate-y-1">
+                    Contact Me
+                </a>
+            </div>
+            <div class="mt-12 animate-bounce">
+                <a href="#about" class="text-gray-400 hover:text-indigo-600 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+                    <p class="text-gray-600 mb-6">
+                        Master of Computer Applications student with a focus on Software Engineering and Data Science. UGC NET qualified for Assistant professor. Passionate about leveraging programming skills, especially in Python to develop data-driven solutions.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Completed IBM Python course (Coursera) and IIT Kharagpur DBMS course (NPTEL). Eager to contribute to innovative projects and grow within a dynamic tech environment.
+                    </p>
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://www.linkedin.com/in/hadi-kp/" class="text-indigo-600 hover:text-indigo-800 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/Haadikp" class="text-indigo-600 hover:text-indigo-800 transition">
+                            <svg xmlns="https://github.com/Haadikp" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/haadi.kp?igsh=Njc1ejllM2tmbmdv" class="text-indigo-600 hover:text-indigo-800 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="text-indigo-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Software Development</h4>
+                        <p class="text-gray-600">Expert in developing scalable and efficient software solutions.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="text-indigo-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Data Science</h4>
+                        <p class="text-gray-600">Analyze and interpret complex data sets to extract valuable insights.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="text-indigo-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Research</h4>
+                        <p class="text-gray-600">Conducting research in emerging technologies and methodologies.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="text-indigo-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Teaching</h4>
+                        <p class="text-gray-600">UGC NET qualified for Assistant Professor position.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">My Skills</h2>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">HTML & CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">C</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">MySql</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Flask</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-6">Tools & Technologies</h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <span>Pandas/NumPy</span>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                </svg>
+                            </div>
+                            <span>TensorFlow</span>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                                </svg>
+                            </div>
+                            <span>MySQL</span>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <span>Flask</span>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                                </svg>
+                            </div>
+                            <span>GitHub</span>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition flex items-center">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <span>Matplotlib/Seaborn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+<section id="education" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4">Education & Certifications</h2>
+            <div class="w-16 h-1 bg-indigo-600 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+                <h3 class="text-2xl font-semibold mb-6">Academic Background</h3>
+                
+                <div class="space-y-8">
+                    <div class="relative pl-8 border-l-2 border-indigo-200">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <h4 class="text-xl font-semibold mb-2">Master of Computer Applications</h4>
+                            <p class="text-gray-600 mb-2">KTU</p>
+                            <p class="text-indigo-600 mb-1">2023 - Present</p>
+                            <p class="text-gray-600"><span class="font-medium">CGPA:</span> 7.41/10 </p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-8 border-l-2 border-indigo-200">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <h4 class="text-xl font-semibold mb-2">BSc. Mathematics</h4>
+                            <p class="text-gray-600 mb-2">University of Calicut</p>
+                            <p class="text-indigo-600 mb-1">2020 - 2023</p>
+                            <p class="text-gray-600"><span class="font-medium">CGPA:</span> 7.1/10</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-8 border-l-2 border-indigo-200">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <h4 class="text-xl font-semibold mb-2">Plus Two (Science)</h4>
+                            <p class="text-gray-600 mb-2">Kerala State Board</p>
+                            <p class="text-indigo-600 mb-1">2018 - 2020</p>
+                            <p class="text-gray-600"><span class="font-medium">Percentage:</span> 88%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-8 border-l-2 border-indigo-200">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <h4 class="text-xl font-semibold mb-2">SSLC (Secondary School)</h4>
+                            <p class="text-gray-600 mb-2">Kerala State Board</p>
+                            <p class="text-indigo-600 mb-1">2017 - 2018</p>
+                            <p class="text-gray-600"><span class="font-medium">Grade:</span> A+ (100%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-semibold mb-6">Certifications</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">UGC NET</h4>
+                                <p class="text-gray-600">Qualified for Assistant Professor</p>
+                            </div>
+                            <span class="text-indigo-600">December 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Python for Data Science</h4>
+                                <p class="text-gray-600">IBM (Coursera)</p>
+                            </div>
+                            <span class="text-indigo-600">June 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Database Management Systems</h4>
+                                <p class="text-gray-600">IIT Kharagpur (NPTEL)</p>
+                            </div>
+                            <span class="text-indigo-600">April 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="Images/home page.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-indigo-800 bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-00 transition">
+                            <!-- <a href="#" class="bg-white text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition">View Project</a> -->
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Personal Finance Management System</h3>
+                        <p class="text-gray-600 mb-4"> Developed a web-based application using Python Flask 
+                            for backend, HTML/CSS for frontend design, and MySQL for database management to help users 
+                            track and manage their finances efficiently. </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Flask</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">HTML & CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">MySQL</span>
+                            
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                            <a href="#" class="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-indigo-600 rounded-lg shadow-md transition duration-300 ease-out hover:bg-indigo-700">
+                                <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-indigo-400 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
+                                <span class="relative group-hover:scale-105 transition duration-300">View Project</span>
+                            </a>
+                            <a href="https://github.com/Haadikp/FinanceManager" class="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gray-800 rounded-lg shadow-md transition duration-300 ease-out hover:bg-gray-900">
+                                <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-700 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
+                                <span class="relative flex items-center group-hover:scale-105 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="Images/Result2-webpg.png" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-indigo-800 bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-80 transition">
+                            <a href="#" class="bg-white text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Image Colorization using Gan</h3>
+                        <p class="text-gray-600 mb-4"> Developed an image colorization system using GANs with 
+                            Python, PyTorch, Flask, and tools like NumPy, PIL, and scikit-image for grayscale-to-color 
+                            conversion.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">PyTorch</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Flask</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">NumPy</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">MySQL</span>
+                            
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                            <a href="#" class="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-indigo-600 rounded-lg shadow-md transition duration-300 ease-out hover:bg-indigo-700">
+                                <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-indigo-400 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
+                                <span class="relative group-hover:scale-105 transition duration-300">View Project</span>
+                            </a>
+                            <a href="https://github.com/Haadikp/Image_Colourization" class="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gray-800 rounded-lg shadow-md transition duration-300 ease-out hover:bg-gray-900">
+                                <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-700 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
+                                <span class="relative flex items-center group-hover:scale-105 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+<!--                 
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/250" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-indigo-800 bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                            <a href="#" class="bg-white text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Data Visualization Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Interactive data visualization dashboard for business analytics with real-time updates.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Flask</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">D3.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition">
+                    <!-- <span>View All Projects</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg> -->
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-16 h-1 bg-white mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Form</h3>
+                    
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Send Message</button>
+                    </form>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-800 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Email</h4>
+                                <p>hadikpkuniyil@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-800 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Phone</h4>
+                                <p>+91 XXXXXX8022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-800 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Location</h4>
+                                <p>Malappuram, Kerala, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-xl font-semibold mb-4">Connect With Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/hadi-kp/" class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-900 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/Haadikp" class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-900 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/haadi.kp?igsh=Njc1ejllM2tmbmdv" class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-900 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-bold gradient-text">Hadi K P</p>
+                    <p class="text-gray-400">MCA Student</p>
+                    <p class="text-gray-400">Software Engineer & Data Science Enthusiast</p>
+                </div>
+                
+                <div>
+                    <!-- <p class="text-gray-400">&copy; 2025 Hadi K P. All rights reserved.</p> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
