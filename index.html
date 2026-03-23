@@ -1,532 +1,1707 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.min.js" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<title>Hadi K P — Data Scientist &amp; Engineer</title>
-<style>
-:root{--bg:#060813;--surf:#0d1117;--glass:rgba(255,255,255,.05);--border:rgba(255,255,255,.09);--acc:#7c3aed;--cyan:#06b6d4;--txt:#f1f5f9;--muted:#94a3b8;--glow:rgba(124,58,237,.4);--grad:linear-gradient(135deg,#7c3aed,#2563eb,#06b6d4)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;line-height:1.7;overflow-x:hidden}
-a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
-h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.2}
-.gt{background:linear-gradient(135deg,#a78bfa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-section{padding:96px 0}
-.container{max-width:1180px;margin:0 auto;padding:0 24px}
-.sec-head{text-align:center;margin-bottom:60px}
-.sec-head h2{font-size:clamp(1.9rem,4vw,2.75rem);margin-bottom:14px}
-.sec-head p{color:var(--muted);max-width:520px;margin:0 auto}
-.bar{width:56px;height:3px;background:var(--grad);margin:14px auto 0;border-radius:2px}
-.card{background:var(--glass);border:1px solid var(--border);border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.card:hover{box-shadow:0 0 40px var(--glow)}
-.ag{animation:ag-float 6s ease-in-out infinite;transform-style:preserve-3d;will-change:transform;position:relative}
-@keyframes ag-float{0%,100%{translate:0 0}50%{translate:0 -10px}}
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(6,8,19,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
-.nav-i{max-width:1180px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem}
-.nav-links{display:flex;gap:4px;list-style:none}
-.nav-links a{padding:7px 15px;border-radius:8px;font-size:.88rem;font-weight:500;color:var(--muted);transition:color .2s,background .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--txt);background:var(--glass)}
-.nav-cta{background:var(--acc)!important;color:#fff!important;border-radius:24px!important;padding:7px 20px!important}
-.nav-cta:hover{background:#6d28d9!important;box-shadow:0 0 20px var(--glow)}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.ham span{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
-/* MOBILE DRAWER */
-.drawer{display:none;position:fixed;top:66px;left:0;right:0;bottom:0;background:rgba(6,8,19,.97);backdrop-filter:blur(20px);flex-direction:column;gap:6px;padding:20px;z-index:99;overflow-y:auto}
-.drawer.open{display:flex}
-.drawer a{padding:14px 20px;border-radius:12px;font-size:1rem;border:1px solid var(--border);font-weight:500}
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
-.blob-1{width:500px;height:500px;background:rgba(124,58,237,.2);top:-80px;left:-120px;animation:drift 8s ease-in-out infinite}
-.blob-2{width:400px;height:400px;background:rgba(6,182,212,.14);bottom:-60px;right:-80px;animation:drift 10s ease-in-out infinite reverse}
-.blob-3{width:300px;height:300px;background:rgba(37,99,235,.12);top:40%;left:40%;animation:drift 12s ease-in-out infinite}
-@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,20px) scale(1.05)}}
-.hero-inner{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
-.hero-text .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);font-size:.8rem;font-weight:600;color:#a78bfa;margin-bottom:20px;letter-spacing:.05em}
-.hero-text h1{font-size:clamp(2.4rem,5.5vw,4rem);margin-bottom:20px}
-.hero-text p{color:var(--muted);font-size:1.05rem;max-width:500px;margin-bottom:40px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{padding:13px 30px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;transition:transform .2s,box-shadow .2s;border:none;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif}
-.btn:hover{transform:translateY(-2px)}
-.btn-p{background:linear-gradient(135deg,var(--acc),#2563eb);color:#fff}
-.btn-p:hover{box-shadow:0 8px 30px var(--glow)}
-.btn-o{background:var(--glass);border:1px solid var(--border);color:var(--txt);backdrop-filter:blur(8px)}
-.btn-o:hover{border-color:var(--acc);box-shadow:0 0 20px var(--glow)}
-.hero-photo{position:relative;flex-shrink:0}
-.hero-photo img{width:260px;height:260px;border-radius:50%;object-fit:cover;border:3px solid var(--acc);box-shadow:0 0 50px var(--glow),0 0 100px rgba(6,182,212,.15);animation:hpulse 3s ease-in-out infinite}
-@keyframes hpulse{0%,100%{box-shadow:0 0 40px var(--glow)}50%{box-shadow:0 0 80px var(--glow),0 0 120px rgba(6,182,212,.2)}}
-.code-badge{position:absolute;bottom:10px;right:-10px;background:linear-gradient(135deg,var(--acc),#2563eb);border-radius:50%;padding:13px;box-shadow:0 4px 20px var(--glow)}
-.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.8rem;animation:sbounce 2s ease-in-out infinite}
-@keyframes sbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-/* ABOUT */
-#about{background:var(--surf)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-text h3{font-size:1.5rem;margin-bottom:18px}
-.about-text p,.about-text li{color:var(--muted);margin-bottom:12px}
-.about-text ul{padding-left:20px}
-.socials{display:flex;gap:10px;margin-top:28px}
-.si{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--border);transition:all .2s;color:var(--muted)}
-.si:hover{color:var(--txt);border-color:var(--acc);box-shadow:0 0 16px var(--glow);transform:translateY(-2px)}
-.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ac{padding:26px;text-align:center}
-.ac svg{width:38px;height:38px;margin:0 auto 12px;color:var(--acc)}
-.ac h4{font-size:.95rem;font-weight:700;margin-bottom:6px}
-.ac p{font-size:.82rem;color:var(--muted)}
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.skill-item{margin-bottom:22px}
-.skill-lbl{display:flex;justify-content:space-between;margin-bottom:8px;font-weight:500;font-size:.9rem}
-.skill-lbl span:last-child{color:var(--muted)}
-.sk-track{height:7px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
-.sk-fill{height:100%;background:linear-gradient(90deg,var(--acc),var(--cyan));border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
-.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tp{display:flex;align-items:center;gap:12px;padding:13px 16px;font-size:.88rem;font-weight:500}
-.tp .ico{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,rgba(124,58,237,.25),rgba(6,182,212,.15));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--cyan)}
-/* LANGUAGES */
-#languages{background:var(--surf)}
-.lang-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.lc{padding:30px 18px;text-align:center}
-.lc svg{margin:0 auto 14px;display:block}
-.lc h4{font-weight:700;margin-bottom:6px}
-.lc .lvl{font-size:.78rem;color:var(--muted);margin-bottom:8px}
-.lbadge{display:inline-block;padding:3px 14px;border-radius:20px;font-size:.72rem;font-weight:700;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.4);color:#a78bfa;letter-spacing:.04em}
-/* EDUCATION */
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.timeline{position:relative;padding-left:26px}
-.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--acc),var(--cyan))}
-.tli{position:relative;margin-bottom:24px}
-.tli::before{content:'';position:absolute;left:-22px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--acc);border:2px solid var(--bg);box-shadow:0 0 10px var(--glow)}
-.tlc{padding:18px 22px}
-.tlc h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
-.tlc .inst{color:var(--muted);font-size:.82rem}
-.tlc .yr{display:inline-block;margin-top:8px;padding:2px 10px;border-radius:20px;font-size:.75rem;font-weight:600;background:linear-gradient(135deg,rgba(124,58,237,.25),rgba(6,182,212,.15));color:var(--cyan)}
-.tlc .gpa{font-size:.82rem;color:var(--muted);margin-top:4px}
-.cert-list{display:flex;flex-direction:column;gap:10px}
-.cc{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px}
-.cc h4{font-size:.9rem;font-weight:600;margin-bottom:2px}
-.cc p{font-size:.78rem;color:var(--muted)}
-.cc .dt{font-size:.75rem;color:var(--acc);white-space:nowrap;font-family:'JetBrains Mono',monospace}
-/* PROJECTS */
-#projects{background:var(--surf)}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pc{overflow:hidden}
-.pimg{position:relative;overflow:hidden;aspect-ratio:16/9}
-.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.pc:hover .pimg img{transform:scale(1.07)}
-.pimg-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,19,.95) 20%,transparent)}
-.pb{padding:22px}
-.pb h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-.pb p{color:var(--muted);font-size:.83rem;line-height:1.6;margin-bottom:14px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.tag{padding:3px 11px;border-radius:20px;font-size:.72rem;font-weight:600;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);color:#a78bfa}
-.plinks{display:flex;gap:8px}
-.pbtn{padding:8px 18px;border-radius:8px;font-size:.78rem;font-weight:600;transition:all .2s;border:1px solid var(--border);background:var(--glass);color:var(--txt)}
-.pbtn:hover{border-color:var(--acc);box-shadow:0 0 14px var(--glow)}
-.pbtn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
-.pbtn.pri:hover{background:#6d28d9}
-/* CONTACT */
-#contact{background:var(--bg);position:relative;overflow:hidden}
-#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(124,58,237,.08),transparent)}
-.contact-in{max-width:580px;margin:0 auto;text-align:center}
-.citems{display:flex;flex-direction:column;gap:14px;margin:40px 0;text-align:left}
-.citem{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:14px;background:var(--glass);border:1px solid var(--border)}
-.citem .ico{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--acc),#2563eb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.citem h4{font-size:.8rem;color:var(--muted);margin-bottom:2px}
-.citem p,.citem a{font-size:.9rem;font-weight:500}
-.csoc{display:flex;justify-content:center;gap:10px;margin-top:32px}
-.csb{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--border);transition:all .2s;color:var(--muted)}
-.csb:hover{color:var(--txt);border-color:var(--acc);box-shadow:0 0 20px var(--glow);transform:translateY(-3px)}
-/* FOOTER */
-footer{background:var(--surf);padding:28px 24px;border-top:1px solid var(--border)}
-.fi{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-footer p{color:var(--muted);font-size:.82rem}
-/* MODAL */
-.vmodal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(10px)}
-.vmodal-box{position:relative;max-width:900px;width:92%}
-.vmodal-close{position:absolute;top:-42px;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer}
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner,.about-grid,.skills-grid,.edu-grid{grid-template-columns:1fr}
-  .hero-photo{order:-1;display:flex;justify-content:center}
-  .hero-text p{max-width:100%}
-  .lang-grid{grid-template-columns:1fr 1fr}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .about-cards{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  section{padding:68px 0}
-  .nav-links{display:none}
-  .ham{display:flex}
-  .proj-grid{grid-template-columns:1fr}
-  .lang-grid{grid-template-columns:1fr 1fr}
-  .fi{flex-direction:column;text-align:center}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <title>Hadi K P — Data Scientist &amp; Engineer</title>
+  <style>
+    :root {
+      --bg: #060813;
+      --surf: #0d1117;
+      --glass: rgba(255, 255, 255, .05);
+      --border: rgba(255, 255, 255, .09);
+      --acc: #7c3aed;
+      --cyan: #06b6d4;
+      --txt: #f1f5f9;
+      --muted: #94a3b8;
+      --glow: rgba(124, 58, 237, .4);
+      --grad: linear-gradient(135deg, #7c3aed, #2563eb, #06b6d4)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--txt);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+      line-height: 1.2
+    }
+
+    .gt {
+      background: linear-gradient(135deg, #a78bfa, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    section {
+      padding: 96px 0
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 60px
+    }
+
+    .sec-head h2 {
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      margin-bottom: 14px
+    }
+
+    .sec-head p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto
+    }
+
+    .bar {
+      width: 56px;
+      height: 3px;
+      background: var(--grad);
+      margin: 14px auto 0;
+      border-radius: 2px
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s
+    }
+
+    .card:hover {
+      box-shadow: 0 0 40px var(--glow)
+    }
+
+    .ag {
+      animation: ag-float 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+      will-change: transform;
+      position: relative
+    }
+
+    @keyframes ag-float {
+
+      0%,
+      100% {
+        translate: 0 0
+      }
+
+      50% {
+        translate: 0 -10px
+      }
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(6, 8, 19, .85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .nav-i {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none
+    }
+
+    .nav-links a {
+      padding: 7px 15px;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color .2s, background .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--txt);
+      background: var(--glass)
+    }
+
+    .nav-cta {
+      background: var(--acc) !important;
+      color: #fff !important;
+      border-radius: 24px !important;
+      padding: 7px 20px !important
+    }
+
+    .nav-cta:hover {
+      background: #6d28d9 !important;
+      box-shadow: 0 0 20px var(--glow)
+    }
+
+    .ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px
+    }
+
+    .ham span {
+      width: 24px;
+      height: 2px;
+      background: var(--txt);
+      border-radius: 2px;
+      transition: .3s
+    }
+
+    /* MOBILE DRAWER */
+    .drawer {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(6, 8, 19, .97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px;
+      z-index: 99;
+      overflow-y: auto
+    }
+
+    .drawer.open {
+      display: flex
+    }
+
+    .drawer a {
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      font-weight: 500
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none
+    }
+
+    .blob-1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(124, 58, 237, .2);
+      top: -80px;
+      left: -120px;
+      animation: drift 8s ease-in-out infinite
+    }
+
+    .blob-2 {
+      width: 400px;
+      height: 400px;
+      background: rgba(6, 182, 212, .14);
+      bottom: -60px;
+      right: -80px;
+      animation: drift 10s ease-in-out infinite reverse
+    }
+
+    .blob-3 {
+      width: 300px;
+      height: 300px;
+      background: rgba(37, 99, 235, .12);
+      top: 40%;
+      left: 40%;
+      animation: drift 12s ease-in-out infinite
+    }
+
+    @keyframes drift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(30px, 20px) scale(1.05)
+      }
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center
+    }
+
+    .hero-text .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(124, 58, 237, .12);
+      border: 1px solid rgba(124, 58, 237, .3);
+      font-size: .8rem;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 20px;
+      letter-spacing: .05em
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      margin-bottom: 20px
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin-bottom: 40px
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      padding: 13px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .btn-p {
+      background: linear-gradient(135deg, var(--acc), #2563eb);
+      color: #fff
+    }
+
+    .btn-p:hover {
+      box-shadow: 0 8px 30px var(--glow)
+    }
+
+    .btn-o {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      color: var(--txt);
+      backdrop-filter: blur(8px)
+    }
+
+    .btn-o:hover {
+      border-color: var(--acc);
+      box-shadow: 0 0 20px var(--glow)
+    }
+
+    .hero-photo {
+      position: relative;
+      flex-shrink: 0
+    }
+
+    .hero-photo img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--acc);
+      box-shadow: 0 0 50px var(--glow), 0 0 100px rgba(6, 182, 212, .15);
+      animation: hpulse 3s ease-in-out infinite
+    }
+
+    @keyframes hpulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 40px var(--glow)
+      }
+
+      50% {
+        box-shadow: 0 0 80px var(--glow), 0 0 120px rgba(6, 182, 212, .2)
+      }
+    }
+
+    .code-badge {
+      position: absolute;
+      bottom: 10px;
+      right: -10px;
+      background: linear-gradient(135deg, var(--acc), #2563eb);
+      border-radius: 50%;
+      padding: 13px;
+      box-shadow: 0 4px 20px var(--glow)
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: .8rem;
+      animation: sbounce 2s ease-in-out infinite
+    }
+
+    @keyframes sbounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px)
+      }
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--surf)
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 18px
+    }
+
+    .about-text p,
+    .about-text li {
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .about-text ul {
+      padding-left: 20px
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px
+    }
+
+    .si {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      transition: all .2s;
+      color: var(--muted)
+    }
+
+    .si:hover {
+      color: var(--txt);
+      border-color: var(--acc);
+      box-shadow: 0 0 16px var(--glow);
+      transform: translateY(-2px)
+    }
+
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .ac {
+      padding: 26px;
+      text-align: center
+    }
+
+    .ac svg {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 12px;
+      color: var(--acc)
+    }
+
+    .ac h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .ac p {
+      font-size: .82rem;
+      color: var(--muted)
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px
+    }
+
+    .skill-item {
+      margin-bottom: 22px
+    }
+
+    .skill-lbl {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: .9rem
+    }
+
+    .skill-lbl span:last-child {
+      color: var(--muted)
+    }
+
+    .sk-track {
+      height: 7px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 4px;
+      overflow: hidden
+    }
+
+    .sk-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--acc), var(--cyan));
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .tp {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px;
+      font-size: .88rem;
+      font-weight: 500
+    }
+
+    .tp .ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(6, 182, 212, .15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--cyan)
+    }
+
+    /* LANGUAGES */
+    #languages {
+      background: var(--surf)
+    }
+
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px
+    }
+
+    .lc {
+      padding: 30px 18px;
+      text-align: center
+    }
+
+    .lc svg {
+      margin: 0 auto 14px;
+      display: block
+    }
+
+    .lc h4 {
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .lc .lvl {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 8px
+    }
+
+    .lbadge {
+      display: inline-block;
+      padding: 3px 14px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 700;
+      background: rgba(124, 58, 237, .15);
+      border: 1px solid rgba(124, 58, 237, .4);
+      color: #a78bfa;
+      letter-spacing: .04em
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 26px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--acc), var(--cyan))
+    }
+
+    .tli {
+      position: relative;
+      margin-bottom: 24px
+    }
+
+    .tli::before {
+      content: '';
+      position: absolute;
+      left: -22px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--acc);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 10px var(--glow)
+    }
+
+    .tlc {
+      padding: 18px 22px
+    }
+
+    .tlc h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .tlc .inst {
+      color: var(--muted);
+      font-size: .82rem
+    }
+
+    .tlc .yr {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(6, 182, 212, .15));
+      color: var(--cyan)
+    }
+
+    .tlc .gpa {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .cc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px
+    }
+
+    .cc h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 2px
+    }
+
+    .cc p {
+      font-size: .78rem;
+      color: var(--muted)
+    }
+
+    .cc .dt {
+      font-size: .75rem;
+      color: var(--acc);
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace
+    }
+
+    /* PROJECTS */
+    #projects {
+      background: var(--surf)
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px
+    }
+
+    .pc {
+      overflow: hidden
+    }
+
+    .pimg {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9
+    }
+
+    .pimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s
+    }
+
+    .pc:hover .pimg img {
+      transform: scale(1.07)
+    }
+
+    .pimg-ov {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6, 8, 19, .95) 20%, transparent)
+    }
+
+    .pb {
+      padding: 22px
+    }
+
+    .pb h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .pb p {
+      color: var(--muted);
+      font-size: .83rem;
+      line-height: 1.6;
+      margin-bottom: 14px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px
+    }
+
+    .tag {
+      padding: 3px 11px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 600;
+      background: rgba(124, 58, 237, .12);
+      border: 1px solid rgba(124, 58, 237, .3);
+      color: #a78bfa
+    }
+
+    .plinks {
+      display: flex;
+      gap: 8px
+    }
+
+    .pbtn {
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: .78rem;
+      font-weight: 600;
+      transition: all .2s;
+      border: 1px solid var(--border);
+      background: var(--glass);
+      color: var(--txt)
+    }
+
+    .pbtn:hover {
+      border-color: var(--acc);
+      box-shadow: 0 0 14px var(--glow)
+    }
+
+    .pbtn.pri {
+      background: var(--acc);
+      border-color: var(--acc);
+      color: #fff
+    }
+
+    .pbtn.pri:hover {
+      background: #6d28d9
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124, 58, 237, .08), transparent)
+    }
+
+    .contact-in {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .citems {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 40px 0;
+      text-align: left
+    }
+
+    .citem {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: var(--glass);
+      border: 1px solid var(--border)
+    }
+
+    .citem .ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--acc), #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .citem h4 {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: 2px
+    }
+
+    .citem p,
+    .citem a {
+      font-size: .9rem;
+      font-weight: 500
+    }
+
+    .csoc {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 32px
+    }
+
+    .csb {
+      width: 50px;
+      height: 50px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      transition: all .2s;
+      color: var(--muted)
+    }
+
+    .csb:hover {
+      color: var(--txt);
+      border-color: var(--acc);
+      box-shadow: 0 0 20px var(--glow);
+      transform: translateY(-3px)
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--surf);
+      padding: 28px 24px;
+      border-top: 1px solid var(--border)
+    }
+
+    .fi {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .82rem
+    }
+
+    /* MODAL */
+    .vmodal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      backdrop-filter: blur(10px)
+    }
+
+    .vmodal-box {
+      position: relative;
+      max-width: 900px;
+      width: 92%
+    }
+
+    .vmodal-close {
+      position: absolute;
+      top: -42px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+
+      .hero-inner,
+      .about-grid,
+      .skills-grid,
+      .edu-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-photo {
+        order: -1;
+        display: flex;
+        justify-content: center
+      }
+
+      .hero-text p {
+        max-width: 100%
+      }
+
+      .lang-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .about-cards {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:640px) {
+      section {
+        padding: 68px 0
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .ham {
+        display: flex
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr
+      }
+
+      .lang-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .fi {
+        flex-direction: column;
+        text-align: center
+      }
+    }
+  </style>
 </head>
+
 <body>
-<!-- NAV -->
-<nav>
-  <div class="nav-i">
-    <a href="#hero" class="nav-logo gt">Hadi K P</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="ham" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-i">
+      <a href="#hero" class="nav-logo gt">Hadi K P</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="drawer" id="drawer">
+    <a href="#about" onclick="closeDrawer()">About</a>
+    <a href="#skills" onclick="closeDrawer()">Skills</a>
+    <a href="#education" onclick="closeDrawer()">Education</a>
+    <a href="#projects" onclick="closeDrawer()">Projects</a>
+    <a href="#contact" onclick="closeDrawer()">Contact</a>
   </div>
-</nav>
-<div class="drawer" id="drawer">
-  <a href="#about" onclick="closeDrawer()">About</a>
-  <a href="#skills" onclick="closeDrawer()">Skills</a>
-  <a href="#education" onclick="closeDrawer()">Education</a>
-  <a href="#projects" onclick="closeDrawer()">Projects</a>
-  <a href="#contact" onclick="closeDrawer()">Contact</a>
-</div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-text" data-aos="fade-right" data-aos-duration="900">
-        <div class="chip">&#9729; Available for opportunities</div>
-        <h1>Hi, I'm <span class="gt">Hadi K P</span></h1>
-        <p>Data Scientist &amp; Software Engineer. Building scalable backends, ML pipelines, and data-driven solutions. Kaggle Expert &bull; UGC NET Qualified &bull; MCA Graduate.</p>
-        <div class="hero-btns">
-          <a href="#projects" class="btn btn-p"> View My Work</a>
-          <a href="Images/Resume.pdf" download class="btn btn-o"> Get Resume</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text" data-aos="fade-right" data-aos-duration="900">
+          <div class="chip">&#9729; Available for opportunities</div>
+          <h1>Hi, I'm <span class="gt">Hadi K P</span></h1>
+          <p>Data Scientist &amp; Software Engineer. Building scalable backends, ML pipelines, and data-driven
+            solutions. Kaggle Expert &bull; UGC NET Qualified &bull; MCA Graduate.</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-p"> View My Work</a>
+            <a href="Images/Resume.pdf" download class="btn btn-o"> Get Resume</a>
+          </div>
         </div>
-      </div>
-      <div class="hero-photo" data-aos="fade-left" data-aos-duration="900">
-        <img src="Images/Hadi K P.png" alt="Hadi K P">
-        <div class="code-badge">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-hint"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>Scroll</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <h2>About <span class="gt">Me</span></h2>
-      <div class="bar"></div>
-    </div>
-    <div class="about-grid">
-      <div data-aos="fade-right">
-        <h3>Who I Am</h3>
-        <p>A passionate Data Science enthusiast and MCA graduate bridging academia and industry through hands-on experience and a deep commitment to continuous learning.</p>
-        <ul>
-          <li>UGC NET Qualified (Computer Science) — recognizing my dedication to education and research.</li>
-          <li>Proficient in Python, Flask, MySQL, and data science libraries (Pandas, NumPy, Scikit-learn, TensorFlow).</li>
-          <li>Built impactful projects: Personal Finance System, AI Job Analyzer, Image Colorization using GANs.</li>
-          <li>Kaggle Expert (Notebooks) — recognized for practical, well-documented data science solutions.</li>
-        </ul>
-        <p>I thrive in collaborative, innovation-driven teams and am eager to contribute skills in software development, data analytics, and machine learning.</p>
-        <div class="socials">
-          <a class="si" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-          <a class="si" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-          <a class="si" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234"/></svg></a>
-          <a class="si" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-        </div>
-      </div>
-      <div class="about-cards" data-aos="fade-left">
-        <div class="card ag ac">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          <h4>Data Science</h4><p>ML pipelines and complex data analysis</p>
-        </div>
-        <div class="card ag ac">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-          <h4>Engineering</h4><p>Scalable, production-grade software</p>
-        </div>
-        <div class="card ag ac">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-          <h4>Research</h4><p>Emerging technologies and AI methods</p>
-        </div>
-        <div class="card ag ac">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <h4>Teaching</h4><p>UGC NET qualified educator</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <h2>My <span class="gt">Skills</span></h2>
-      <div class="bar"></div>
-    </div>
-    <div class="skills-grid">
-      <div data-aos="fade-right">
-        <h3 style="margin-bottom:32px;font-size:1.3rem">Technical Proficiency</h3>
-        <div class="skill-item"><div class="skill-lbl"><span>Python</span><span>80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
-        <div class="skill-item"><div class="skill-lbl"><span>HTML &amp; CSS</span><span>75%</span></div><div class="sk-track"><div class="sk-fill" data-pct="75"></div></div></div>
-        <div class="skill-item"><div class="skill-lbl"><span>C</span><span>80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
-        <div class="skill-item"><div class="skill-lbl"><span>MySQL</span><span>70%</span></div><div class="sk-track"><div class="sk-fill" data-pct="70"></div></div></div>
-        <div class="skill-item"><div class="skill-lbl"><span>Flask</span><span>80%</span></div><div class="sk-track"><div class="sk-fill" data-pct="80"></div></div></div>
-        <div class="skill-item"><div class="skill-lbl"><span>Java</span><span>40%</span></div><div class="sk-track"><div class="sk-fill" data-pct="40"></div></div></div>
-      </div>
-      <div data-aos="fade-left">
-        <h3 style="margin-bottom:32px;font-size:1.3rem">Tools &amp; Technologies</h3>
-        <div class="tools-grid">
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>Pandas &amp; NumPy</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div>TensorFlow</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div>MySQL</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>Flask</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg></div>GitHub</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><line x1="8" y1="12" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="12" x2="16" y2="18" stroke-width="2"/></svg></div>Scikit-learn</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>VS Code</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>PyCharm</div>
-          <div class="card ag tp"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-4-4v8"/></svg></div>Dataiku</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LANGUAGES -->
-<section id="languages">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <h2>Languages <span class="gt">Known</span></h2>
-      <div class="bar"></div>
-    </div>
-    <div class="lang-grid" data-aos="fade-up">
-      <div class="card ag lc">
-        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 60 30"><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#a)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>
-        <h4>English</h4><p class="lvl">Professional</p><span class="lbadge">FLUENT</span>
-      </div>
-      <div class="card ag lc">
-        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600"><path fill="#F93" d="M0 0h900v200H0z"/><path fill="#FFF" d="M0 200h900v200H0z"/><path fill="#128807" d="M0 400h900v200H0z"/><g transform="translate(450,300)"><circle r="80" fill="#FFF"/><circle r="16" fill="#008"/></g></svg>
-        <h4>Hindi</h4><p class="lvl">Conversational</p><span class="lbadge">BASIC</span>
-      </div>
-      <div class="card ag lc">
-        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600"><path fill="#F93" d="M0 0h900v200H0z"/><path fill="#FFF" d="M0 200h900v200H0z"/><path fill="#128807" d="M0 400h900v200H0z"/><g transform="translate(450,300)"><circle r="80" fill="#FFF"/><circle r="16" fill="#008"/></g></svg>
-        <h4>Malayalam</h4><p class="lvl">Mother Tongue</p><span class="lbadge">NATIVE</span>
-      </div>
-      <div class="card ag lc">
-        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600"><rect width="900" height="600" fill="#006C35"/><path d="M250 180 Q230 165 250 150 L550 150 Q570 138 590 150 L590 180 Q570 193 550 180 L250 180" fill="#FFF"/></svg>
-        <h4>Arabic</h4><p class="lvl">Elementary</p><span class="lbadge">BASIC</span>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- EDUCATION & CERTS -->
-<section id="education" style="background:var(--surf)">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <h2>Education &amp; <span class="gt">Certifications</span></h2>
-      <div class="bar"></div>
-    </div>
-    <div class="edu-grid">
-      <div data-aos="fade-right">
-        <h3 style="font-size:1.3rem;margin-bottom:32px">Academic Background</h3>
-        <div class="timeline">
-          <div class="tli"><div class="card ag tlc"><h4>Master of Computer Applications</h4><span class="inst">KTU University</span><div class="yr">2023 – 2025</div><p class="gpa">CGPA: 7.95 / 10</p></div></div>
-          <div class="tli"><div class="card ag tlc"><h4>BSc. Mathematics</h4><span class="inst">University of Calicut</span><div class="yr">2020 – 2023</div><p class="gpa">CGPA: 7.1 / 10</p></div></div>
-          <div class="tli"><div class="card ag tlc"><h4>Plus Two (Science)</h4><span class="inst">Kerala State Board</span><div class="yr">2018 – 2020</div><p class="gpa">Percentage: 88%</p></div></div>
-          <div class="tli"><div class="card ag tlc"><h4>SSLC</h4><span class="inst">Kerala State Board</span><div class="yr">2017 – 2018</div><p class="gpa">Grade: A+ (100%)</p></div></div>
-        </div>
-      </div>
-      <div data-aos="fade-left">
-        <h3 style="font-size:1.3rem;margin-bottom:32px">Certifications</h3>
-        <div class="cert-list">
-          <div class="card ag cc"><div><h4>UGC NET — Computer Science</h4><p>Qualified for Assistant Professor</p></div><span class="dt">Dec 2024</span></div>
-          <div class="card ag cc"><div><h4>Dataiku ML Practitioner</h4><p>Dataiku</p></div><span class="dt">Oct 2025</span></div>
-          <div class="card ag cc"><div><h4>Dataiku Advanced Designer</h4><p>Dataiku</p></div><span class="dt">Sep 2025</span></div>
-          <div class="card ag cc"><div><h4>Dataiku Core Designer</h4><p>Dataiku</p></div><span class="dt">Sep 2025</span></div>
-          <div class="card ag cc"><div><h4>Intermediate Machine Learning</h4><p>Kaggle</p></div><span class="dt">Jun 2025</span></div>
-          <div class="card ag cc"><div><h4>Intro to Machine Learning</h4><p>Kaggle</p></div><span class="dt">Jun 2025</span></div>
-          <div class="card ag cc"><div><h4>Data Analytics</h4><p>YBI Foundation</p></div><span class="dt">Oct 2024</span></div>
-          <div class="card ag cc"><div><h4>Python for Data Science</h4><p>IBM / Coursera</p></div><span class="dt">Jun 2024</span></div>
-          <div class="card ag cc"><div><h4>Database Management Systems</h4><p>IIT Kharagpur (NPTEL)</p></div><span class="dt">Apr 2024</span></div>
-          <div class="card ag cc"><div><h4>Introduction to Microsoft Excel</h4><p>Coursera Project Network</p></div><span class="dt">Mar 2024</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <h2>Featured <span class="gt">Projects</span></h2>
-      <div class="bar"></div>
-    </div>
-    <div class="proj-grid">
-      <div class="card ag pc" data-aos="fade-up" data-aos-delay="100">
-        <div class="pimg"><img src="Images/Job_analyzer_AI.png" alt="AI Job Analyzer"><div class="pimg-ov"></div></div>
-        <div class="pb">
-          <h3>AI Job Analyzer</h3>
-          <p>AI-powered career assistant using LangChain, Groq &amp; Gradio to extract job requirements, parse resumes, match skills and generate tailored interview questions.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">GenAI / LLMs</span><span class="tag">Gradio</span></div>
-          <div class="plinks"><a href="https://github.com/Haadikp/Job-Aanalyzer-AI" class="pbtn">&#128279; GitHub</a></div>
-        </div>
-      </div>
-      <div class="card ag pc" data-aos="fade-up" data-aos-delay="200">
-        <div class="pimg"><img src="Images/Result2-webpg.png" alt="Image Colorization"><div class="pimg-ov"></div></div>
-        <div class="pb">
-          <h3>Image Colorization using GANs</h3>
-          <p>Colorization system using Generative Adversarial Networks with PyTorch &amp; Flask to convert grayscale images into realistic color representations.</p>
-          <div class="tags"><span class="tag">PyTorch</span><span class="tag">GANs</span><span class="tag">Flask</span><span class="tag">NumPy</span></div>
-          <div class="plinks">
-            <a href="#" onclick="openVideo('project2');return false" class="pbtn pri">&#9654; Demo</a>
-            <a href="https://github.com/Haadikp/Image_Colourization" class="pbtn">&#128279; GitHub</a>
+        <div class="hero-photo" data-aos="fade-left" data-aos-duration="900">
+          <img src="Images/Hadi K P.png" alt="Hadi K P">
+          <div class="code-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
           </div>
         </div>
       </div>
-      <div class="card ag pc" data-aos="fade-up" data-aos-delay="300">
-        <div class="pimg"><img src="Images/home page.png" alt="Finance Manager"><div class="pimg-ov"></div></div>
-        <div class="pb">
-          <h3>Personal Finance Management System</h3>
-          <p>Web-based application using Python Flask for backend, HTML/CSS for frontend and MySQL for database management to track and manage finances.</p>
-          <div class="tags"><span class="tag">Flask</span><span class="tag">HTML &amp; CSS</span><span class="tag">MySQL</span></div>
-          <div class="plinks"><a href="https://github.com/Haadikp/FinanceManager" class="pbtn">&#128279; GitHub</a></div>
+    </div>
+    <div class="scroll-hint"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>Scroll</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head" data-aos="fade-up">
+        <h2>About <span class="gt">Me</span></h2>
+        <div class="bar"></div>
+      </div>
+      <div class="about-grid">
+        <div data-aos="fade-right">
+          <h3>Who I Am</h3>
+          <p>A passionate Data Science enthusiast and MCA graduate bridging academia and industry through hands-on
+            experience and a deep commitment to continuous learning.</p>
+          <ul>
+            <li>UGC NET Qualified (Computer Science) — recognizing my dedication to education and research.</li>
+            <li>Proficient in Python, Flask, MySQL, and data science libraries (Pandas, NumPy, Scikit-learn,
+              TensorFlow).</li>
+            <li>Built impactful projects: Personal Finance System, AI Job Analyzer, Image Colorization using GANs.</li>
+            <li>Kaggle Expert (Notebooks) — recognized for practical, well-documented data science solutions.</li>
+          </ul>
+          <p>I thrive in collaborative, innovation-driven teams and am eager to contribute skills in software
+            development, data analytics, and machine learning.</p>
+          <div class="socials">
+            <a class="si" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg></a>
+            <a class="si" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg"
+                width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg></a>
+            <a class="si" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234" />
+              </svg></a>
+            <a class="si" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="about-cards" data-aos="fade-left">
+          <div class="card ag ac">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <h4>Data Science</h4>
+            <p>ML pipelines and complex data analysis</p>
+          </div>
+          <div class="card ag ac">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <h4>Engineering</h4>
+            <p>Scalable, production-grade software</p>
+          </div>
+          <div class="card ag ac">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+            <h4>Research</h4>
+            <p>Emerging technologies and AI methods</p>
+          </div>
+          <div class="card ag ac">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <h4>Teaching</h4>
+            <p>UGC NET qualified educator</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-in">
+  </section>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
       <div class="sec-head" data-aos="fade-up">
-        <h2>Get In <span class="gt">Touch</span></h2>
-        <p>I am always open to new opportunities and collaborations.</p>
+        <h2>My <span class="gt">Skills</span></h2>
         <div class="bar"></div>
       </div>
-      <div class="citems" data-aos="fade-up">
-        <div class="citem"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><h4>Email</h4><a href="mailto:hadikpkuniyil@gmail.com">hadikpkuniyil@gmail.com</a></div></div>
-        <div class="citem"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><div><h4>Phone</h4><p>+91 8078096803</p></div></div>
-        <div class="citem"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><h4>Location</h4><p>Kerala, India</p></div></div>
-      </div>
-      <div class="csoc" data-aos="fade-up">
-        <a class="csb" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-        <a class="csb" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-        <a class="csb" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234"/></svg></a>
-        <a class="csb" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <div class="skills-grid">
+        <div data-aos="fade-right">
+          <h3 style="margin-bottom:32px;font-size:1.3rem">Technical Proficiency</h3>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>Python</span><span>80%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>HTML &amp; CSS</span><span>75%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>C</span><span>80%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>MySQL</span><span>70%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>Flask</span><span>80%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-lbl"><span>Java</span><span>40%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-pct="40"></div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <h3 style="margin-bottom:32px;font-size:1.3rem">Tools &amp; Technologies</h3>
+          <div class="tools-grid">
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg></div>Pandas &amp; NumPy
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg></div>TensorFlow
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg></div>MySQL
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg></div>Flask
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                </svg></div>GitHub
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="12" r="2" />
+                  <circle cx="18" cy="6" r="2" />
+                  <circle cx="18" cy="18" r="2" />
+                  <line x1="8" y1="12" x2="16" y2="6" stroke-width="2" />
+                  <line x1="8" y1="12" x2="16" y2="18" stroke-width="2" />
+                </svg></div>Scikit-learn
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg></div>VS Code
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg></div>PyCharm
+            </div>
+            <div class="card ag tp">
+              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-4-4v8" />
+                </svg></div>Dataiku
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="fi">
-    <div>
-      <p class="gt" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:4px">Hadi K P</p>
-      <p>Data Scientist &amp; Software Engineer</p>
+  <!-- LANGUAGES -->
+  <section id="languages">
+    <div class="container">
+      <div class="sec-head" data-aos="fade-up">
+        <h2>Languages <span class="gt">Known</span></h2>
+        <div class="bar"></div>
+      </div>
+      <div class="lang-grid" data-aos="fade-up">
+        <div class="card ag lc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 60 30">
+            <clipPath id="a">
+              <path d="M0 0v30h60V0z" />
+            </clipPath>
+            <clipPath id="b">
+              <path d="M30 15h30v15zv15H0zH0V0zV0h30z" />
+            </clipPath>
+            <g clip-path="url(#a)">
+              <path d="M0 0v30h60V0z" fill="#012169" />
+              <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6" />
+              <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4" />
+              <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
+              <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6" />
+            </g>
+          </svg>
+          <h4>English</h4>
+          <p class="lvl">Professional</p><span class="lbadge">FLUENT</span>
+        </div>
+        <div class="card ag lc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
+            <path fill="#F93" d="M0 0h900v200H0z" />
+            <path fill="#FFF" d="M0 200h900v200H0z" />
+            <path fill="#128807" d="M0 400h900v200H0z" />
+            <g transform="translate(450,300)">
+              <circle r="80" fill="#FFF" />
+              <circle r="16" fill="#008" />
+            </g>
+          </svg>
+          <h4>Hindi</h4>
+          <p class="lvl">Conversational</p><span class="lbadge">BASIC</span>
+        </div>
+        <div class="card ag lc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
+            <path fill="#F93" d="M0 0h900v200H0z" />
+            <path fill="#FFF" d="M0 200h900v200H0z" />
+            <path fill="#128807" d="M0 400h900v200H0z" />
+            <g transform="translate(450,300)">
+              <circle r="80" fill="#FFF" />
+              <circle r="16" fill="#008" />
+            </g>
+          </svg>
+          <h4>Malayalam</h4>
+          <p class="lvl">Mother Tongue</p><span class="lbadge">NATIVE</span>
+        </div>
+        <div class="card ag lc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
+            <rect width="900" height="600" fill="#006C35" />
+            <path d="M250 180 Q230 165 250 150 L550 150 Q570 138 590 150 L590 180 Q570 193 550 180 L250 180"
+              fill="#FFF" />
+          </svg>
+          <h4>Arabic</h4>
+          <p class="lvl">Elementary</p><span class="lbadge">BASIC</span>
+        </div>
+      </div>
     </div>
-    <p>&#169; 2025 Hadi K P &mdash; Built with passion</p>
+  </section>
+  <!-- EDUCATION & CERTS -->
+  <section id="education" style="background:var(--surf)">
+    <div class="container">
+      <div class="sec-head" data-aos="fade-up">
+        <h2>Education &amp; <span class="gt">Certifications</span></h2>
+        <div class="bar"></div>
+      </div>
+      <div class="edu-grid">
+        <div data-aos="fade-right">
+          <h3 style="font-size:1.3rem;margin-bottom:32px">Academic Background</h3>
+          <div class="timeline">
+            <div class="tli">
+              <div class="card ag tlc">
+                <h4>Master of Computer Applications</h4><span class="inst">KTU University</span>
+                <div class="yr">2023 – 2025</div>
+                <p class="gpa">CGPA: 7.95 / 10</p>
+              </div>
+            </div>
+            <div class="tli">
+              <div class="card ag tlc">
+                <h4>BSc. Mathematics</h4><span class="inst">University of Calicut</span>
+                <div class="yr">2020 – 2023</div>
+                <p class="gpa">CGPA: 7.1 / 10</p>
+              </div>
+            </div>
+            <div class="tli">
+              <div class="card ag tlc">
+                <h4>Plus Two (Science)</h4><span class="inst">Kerala State Board</span>
+                <div class="yr">2018 – 2020</div>
+                <p class="gpa">Percentage: 88%</p>
+              </div>
+            </div>
+            <div class="tli">
+              <div class="card ag tlc">
+                <h4>SSLC</h4><span class="inst">Kerala State Board</span>
+                <div class="yr">2017 – 2018</div>
+                <p class="gpa">Grade: A+ (100%)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <h3 style="font-size:1.3rem;margin-bottom:32px">Certifications</h3>
+          <div class="cert-list">
+            <div class="card ag cc">
+              <div>
+                <h4>UGC NET — Computer Science</h4>
+                <p>Qualified for Assistant Professor</p>
+              </div><span class="dt">Dec 2024</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>IBM Data Science Professional Certificate</h4>
+                <p>IBM</p>
+              </div><span class="dt">Feb 2026</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Dataiku Professional Certifications</h4>
+                <p>Dataiku</p>
+              </div><span class="dt">Oct 2025</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Intermediate Machine Learning</h4>
+                <p>Kaggle</p>
+              </div><span class="dt">Jun 2025</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Intro to Machine Learning</h4>
+                <p>Kaggle</p>
+              </div><span class="dt">Jun 2025</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Data Analytics</h4>
+                <p>YBI Foundation</p>
+              </div><span class="dt">Oct 2024</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Python for Data Science</h4>
+                <p>IBM / Coursera</p>
+              </div><span class="dt">Jun 2024</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Database Management Systems</h4>
+                <p>IIT Kharagpur (NPTEL)</p>
+              </div><span class="dt">Apr 2024</span>
+            </div>
+            <div class="card ag cc">
+              <div>
+                <h4>Introduction to Microsoft Excel</h4>
+                <p>Coursera Project Network</p>
+              </div><span class="dt">Mar 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-head" data-aos="fade-up">
+        <h2>Featured <span class="gt">Projects</span></h2>
+        <div class="bar"></div>
+      </div>
+      <div class="proj-grid">
+        <div class="card ag pc" data-aos="fade-up" data-aos-delay="100">
+          <div class="pimg"><img src="Images/Job_analyzer_AI.png" alt="AI Job Analyzer">
+            <div class="pimg-ov"></div>
+          </div>
+          <div class="pb">
+            <h3>AI Job Analyzer</h3>
+            <p>AI-powered career assistant using LangChain, Groq &amp; Gradio to extract job requirements, parse
+              resumes, match skills and generate tailored interview questions.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">GenAI /
+                LLMs</span><span class="tag">Gradio</span></div>
+            <div class="plinks"><a href="https://github.com/Haadikp/Job-Aanalyzer-AI" class="pbtn">&#128279; GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="card ag pc" data-aos="fade-up" data-aos-delay="200">
+          <div class="pimg"><img src="Images/Result2-webpg.png" alt="Image Colorization">
+            <div class="pimg-ov"></div>
+          </div>
+          <div class="pb">
+            <h3>Image Colorization using GANs</h3>
+            <p>Colorization system using Generative Adversarial Networks with PyTorch &amp; Flask to convert grayscale
+              images into realistic color representations.</p>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">GANs</span><span
+                class="tag">Flask</span><span class="tag">NumPy</span></div>
+            <div class="plinks">
+              <a href="#" onclick="openVideo('project2');return false" class="pbtn pri">&#9654; Demo</a>
+              <a href="https://github.com/Haadikp/Image_Colourization" class="pbtn">&#128279; GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="card ag pc" data-aos="fade-up" data-aos-delay="300">
+          <div class="pimg"><img src="Images/home page.png" alt="Finance Manager">
+            <div class="pimg-ov"></div>
+          </div>
+          <div class="pb">
+            <h3>Personal Finance Management System</h3>
+            <p>Web-based application using Python Flask for backend, HTML/CSS for frontend and MySQL for database
+              management to track and manage finances.</p>
+            <div class="tags"><span class="tag">Flask</span><span class="tag">HTML &amp; CSS</span><span
+                class="tag">MySQL</span></div>
+            <div class="plinks">
+              <a href="https://finance-manager-eight-rho.vercel.app/" target="_blank" class="pbtn pri"> Live App</a>
+              <a href="https://github.com/Haadikp/FinanceManager" class="pbtn">&#128279; GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-in">
+        <div class="sec-head" data-aos="fade-up">
+          <h2>Get In <span class="gt">Touch</span></h2>
+          <p>I am always open to new opportunities and collaborations.</p>
+          <div class="bar"></div>
+        </div>
+        <div class="citems" data-aos="fade-up">
+          <div class="citem">
+            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg></div>
+            <div>
+              <h4>Email</h4><a href="mailto:hadikpkuniyil@gmail.com">hadikpkuniyil@gmail.com</a>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg></div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 8078096803</p>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg></div>
+            <div>
+              <h4>Location</h4>
+              <p>Kerala, India</p>
+            </div>
+          </div>
+        </div>
+        <div class="csoc" data-aos="fade-up">
+          <a class="csb" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg></a>
+          <a class="csb" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg"
+              width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg></a>
+          <a class="csb" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234" />
+            </svg></a>
+          <a class="csb" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fi">
+      <div>
+        <p class="gt" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:4px">Hadi K P
+        </p>
+        <p>Data Scientist &amp; Software Engineer</p>
+      </div>
+      <p>&#169; 2025 Hadi K P &mdash; Built with passion</p>
+    </div>
+  </footer>
+  <!-- VIDEO MODAL -->
+  <div class="vmodal" id="vmodal" style="display:none">
+    <div class="vmodal-box">
+      <button class="vmodal-close" onclick="closeVideo()">&times;</button>
+      <video id="vplayer" controls style="width:100%;border-radius:12px"></video>
+    </div>
   </div>
-</footer>
-<!-- VIDEO MODAL -->
-<div class="vmodal" id="vmodal" style="display:none">
-  <div class="vmodal-box">
-    <button class="vmodal-close" onclick="closeVideo()">&times;</button>
-    <video id="vplayer" controls style="width:100%;border-radius:12px"></video>
-  </div>
-</div>
 
-<script>
-// AOS
-AOS.init({duration:700,once:true,offset:60});
+  <script>
+    // AOS
+    AOS.init({ duration: 700, once: true, offset: 60 });
 
-// Mobile drawer
-const ham=document.getElementById('ham'),drawer=document.getElementById('drawer');
-ham.addEventListener('click',()=>drawer.classList.toggle('open'));
-function closeDrawer(){drawer.classList.remove('open')}
+    // Mobile drawer
+    const ham = document.getElementById('ham'), drawer = document.getElementById('drawer');
+    ham.addEventListener('click', () => drawer.classList.toggle('open'));
+    function closeDrawer() { drawer.classList.remove('open') }
 
-// Active nav link on scroll
-const sections=document.querySelectorAll('section[id]');
-const navAs=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
-  navAs.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
-},{ passive:true });
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id });
+      navAs.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur) });
+    }, { passive: true });
 
-// Skill bars on scroll
-const fills=document.querySelectorAll('.sk-fill');
-const skObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.pct+'%';skObs.unobserve(e.target)}});
-},{threshold:0.3});
-fills.forEach(f=>skObs.observe(f));
+    // Skill bars on scroll
+    const fills = document.querySelectorAll('.sk-fill');
+    const skObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.pct + '%'; skObs.unobserve(e.target) } });
+    }, { threshold: 0.3 });
+    fills.forEach(f => skObs.observe(f));
 
-// Video modal
-function openVideo(id){
-  const urls={'project2':'Images/Image_colorization_using_gans.mp4'};
-  const v=document.getElementById('vplayer');
-  v.src=urls[id]||'';v.play();
-  const m=document.getElementById('vmodal');m.style.display='flex';
-  m.onclick=e=>{if(e.target===m)closeVideo()};
-  document.body.style.overflow='hidden';
-}
-function closeVideo(){
-  const v=document.getElementById('vplayer');v.pause();v.src='';
-  document.getElementById('vmodal').style.display='none';
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
-
-// ANTIGRAVITY — requestAnimationFrame repel + tilt
-const agEls=document.querySelectorAll('.ag');
-let mx=0,my=0,rafId=null,isMoving=false;
-
-// Randomise float duration & delay for natural feel
-agEls.forEach(el=>{
-  el.style.animationDuration=(4+Math.random()*4).toFixed(1)+'s';
-  el.style.animationDelay=(Math.random()*-4).toFixed(2)+'s';
-});
-
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(!isMoving){isMoving=true;rafId=requestAnimationFrame(tickAG);}},{passive:true});
-document.addEventListener('mouseleave',()=>{isMoving=false;cancelAnimationFrame(rafId);agEls.forEach(el=>{el.style.transform='';el.style.zIndex='';});});
-
-function tickAG(){
-  agEls.forEach(el=>{
-    const r=el.getBoundingClientRect();
-    const cx=r.left+r.width/2,cy=r.top+r.height/2;
-    const dx=mx-cx,dy=my-cy;
-    const dist=Math.sqrt(dx*dx+dy*dy);
-    const maxD=300;
-    if(dist<maxD&&dist>0){
-      const f=Math.pow((maxD-dist)/maxD,1.3);
-      const rx=-(dx/dist)*f*18;
-      const ry=-(dy/dist)*f*18;
-      const tx=(dy/r.height)*f*12;
-      const ty=-(dx/r.width)*f*12;
-      el.style.transform=`translate(${rx}px,${ry}px) rotateX(${tx}deg) rotateY(${ty}deg) scale(${1+f*.04})`;
-      el.style.zIndex='10';
-    } else {
-      el.style.transform='';el.style.zIndex='';
+    // Video modal
+    function openVideo(id) {
+      const urls = { 'project2': 'Images/Image_colorization_using_gans.mp4' };
+      const v = document.getElementById('vplayer');
+      v.src = urls[id] || ''; v.play();
+      const m = document.getElementById('vmodal'); m.style.display = 'flex';
+      m.onclick = e => { if (e.target === m) closeVideo() };
+      document.body.style.overflow = 'hidden';
     }
-  });
-  if(isMoving)rafId=requestAnimationFrame(tickAG);
-}
-</script>
+    function closeVideo() {
+      const v = document.getElementById('vplayer'); v.pause(); v.src = '';
+      document.getElementById('vmodal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo() });
+
+    // ANTIGRAVITY — requestAnimationFrame repel + tilt
+    const agEls = document.querySelectorAll('.ag');
+    let mx = 0, my = 0, rafId = null, isMoving = false;
+
+    // Randomise float duration & delay for natural feel
+    agEls.forEach(el => {
+      el.style.animationDuration = (4 + Math.random() * 4).toFixed(1) + 's';
+      el.style.animationDelay = (Math.random() * -4).toFixed(2) + 's';
+    });
+
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; if (!isMoving) { isMoving = true; rafId = requestAnimationFrame(tickAG); } }, { passive: true });
+    document.addEventListener('mouseleave', () => { isMoving = false; cancelAnimationFrame(rafId); agEls.forEach(el => { el.style.transform = ''; el.style.zIndex = ''; }); });
+
+    function tickAG() {
+      agEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const dx = mx - cx, dy = my - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxD = 300;
+        if (dist < maxD && dist > 0) {
+          const f = Math.pow((maxD - dist) / maxD, 1.3);
+          const rx = -(dx / dist) * f * 18;
+          const ry = -(dy / dist) * f * 18;
+          const tx = (dy / r.height) * f * 12;
+          const ty = -(dx / r.width) * f * 12;
+          el.style.transform = `translate(${rx}px,${ry}px) rotateX(${tx}deg) rotateY(${ty}deg) scale(${1 + f * .04})`;
+          el.style.zIndex = '10';
+        } else {
+          el.style.transform = ''; el.style.zIndex = '';
+        }
+      });
+      if (isMoving) rafId = requestAnimationFrame(tickAG);
+    }
+  </script>
 </body>
+
 </html>
