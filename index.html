@@ -1,1758 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hadi K P | Assistant Professor, CS &amp; AI, SAFI Malappuram</title>
+  <meta name="description" content="Hadi K P is an Assistant Professor and Placement Coordinator in the Department of CS &amp; AI at SAFI Institute of Advanced Study (Autonomous), Malappuram, Kerala. UGC NET qualified, MCA, Kaggle Expert.">
+  <meta name="author" content="Hadi K P">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1214" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- ============================================================
+       SITE URL: set to https://haadikp.github.io/Portfolio/ (from the
+       repo remote Haadikp/Portfolio). If you add a custom domain, update
+       it in 3 places: canonical, og:url, og:image.
+       ============================================================ -->
+  <link rel="canonical" href="https://haadikp.github.io/Portfolio/">
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Hadi K P | Assistant Professor, CS &amp; AI">
+  <meta property="og:description" content="Assistant Professor and Placement Coordinator, Department of CS &amp; AI, SAFI Institute of Advanced Study (Autonomous), Malappuram, Kerala.">
+  <meta property="og:url" content="https://haadikp.github.io/Portfolio/">
+  <!-- TODO (OG IMAGE): best results with a 1200x630 JPG under 300 KB named og-image.jpg in Images/.
+       Until you make one, this points to your profile photo. -->
+  <meta property="og:image" content="https://haadikp.github.io/Portfolio/Images/Hadi%20K%20P.png">
+  <meta property="og:image:alt" content="Portrait of Hadi K P">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons. favicon.svg is new (included). The PNG/manifest lines are from your
+       old site: keep them only if those files exist in your repo. -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Source Serif 4 (headings), Inter (body). Free, Google Fonts. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <title>Hadi K P — Data Scientist &amp; Engineer</title>
-  <style>
-    :root {
-      --bg: #060813;
-      --surf: #0d1117;
-      --glass: rgba(255, 255, 255, .05);
-      --border: rgba(255, 255, 255, .09);
-      --acc: #7c3aed;
-      --cyan: #06b6d4;
-      --txt: #f1f5f9;
-      --muted: #94a3b8;
-      --glow: rgba(124, 58, 237, .4);
-      --grad: linear-gradient(135deg, #7c3aed, #2563eb, #06b6d4)
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--txt);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    img {
-      display: block;
-      max-width: 100%
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: 'Syne', sans-serif;
-      line-height: 1.2
-    }
-
-    .gt {
-      background: linear-gradient(135deg, #a78bfa, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    section {
-      padding: 96px 0
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    .sec-head {
-      text-align: center;
-      margin-bottom: 60px
-    }
-
-    .sec-head h2 {
-      font-size: clamp(1.9rem, 4vw, 2.75rem);
-      margin-bottom: 14px
-    }
-
-    .sec-head p {
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto
-    }
-
-    .bar {
-      width: 56px;
-      height: 3px;
-      background: var(--grad);
-      margin: 14px auto 0;
-      border-radius: 2px
-    }
-
-    .card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s
-    }
-
-    .card:hover {
-      box-shadow: 0 0 40px var(--glow)
-    }
-
-    .ag {
-      animation: ag-float 6s ease-in-out infinite;
-      transform-style: preserve-3d;
-      will-change: transform;
-      position: relative
-    }
-
-    @keyframes ag-float {
-
-      0%,
-      100% {
-        translate: 0 0
-      }
-
-      50% {
-        translate: 0 -10px
-      }
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(6, 8, 19, .85);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border)
-    }
-
-    .nav-i {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 66px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      list-style: none
-    }
-
-    .nav-links a {
-      padding: 7px 15px;
-      border-radius: 8px;
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--muted);
-      transition: color .2s, background .2s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--txt);
-      background: var(--glass)
-    }
-
-    .nav-cta {
-      background: var(--acc) !important;
-      color: #fff !important;
-      border-radius: 24px !important;
-      padding: 7px 20px !important
-    }
-
-    .nav-cta:hover {
-      background: #6d28d9 !important;
-      box-shadow: 0 0 20px var(--glow)
-    }
-
-    .ham {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px
-    }
-
-    .ham span {
-      width: 24px;
-      height: 2px;
-      background: var(--txt);
-      border-radius: 2px;
-      transition: .3s
-    }
-
-    /* MOBILE DRAWER */
-    .drawer {
-      display: none;
-      position: fixed;
-      top: 66px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(6, 8, 19, .97);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      gap: 6px;
-      padding: 20px;
-      z-index: 99;
-      overflow-y: auto
-    }
-
-    .drawer.open {
-      display: flex
-    }
-
-    .drawer a {
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-size: 1rem;
-      border: 1px solid var(--border);
-      font-weight: 500
-    }
-
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-      position: relative;
-      overflow: hidden
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none
-    }
-
-    .blob-1 {
-      width: 500px;
-      height: 500px;
-      background: rgba(124, 58, 237, .2);
-      top: -80px;
-      left: -120px;
-      animation: drift 8s ease-in-out infinite
-    }
-
-    .blob-2 {
-      width: 400px;
-      height: 400px;
-      background: rgba(6, 182, 212, .14);
-      bottom: -60px;
-      right: -80px;
-      animation: drift 10s ease-in-out infinite reverse
-    }
-
-    .blob-3 {
-      width: 300px;
-      height: 300px;
-      background: rgba(37, 99, 235, .12);
-      top: 40%;
-      left: 40%;
-      animation: drift 12s ease-in-out infinite
-    }
-
-    @keyframes drift {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform: translate(30px, 20px) scale(1.05)
-      }
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 60px;
-      align-items: center
-    }
-
-    .hero-text .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      background: rgba(124, 58, 237, .12);
-      border: 1px solid rgba(124, 58, 237, .3);
-      font-size: .8rem;
-      font-weight: 600;
-      color: #a78bfa;
-      margin-bottom: 20px;
-      letter-spacing: .05em
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      margin-bottom: 20px
-    }
-
-    .hero-text p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin-bottom: 40px
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap
-    }
-
-    .btn {
-      padding: 13px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: .9rem;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Inter', sans-serif
-    }
-
-    .btn:hover {
-      transform: translateY(-2px)
-    }
-
-    .btn-p {
-      background: linear-gradient(135deg, var(--acc), #2563eb);
-      color: #fff
-    }
-
-    .btn-p:hover {
-      box-shadow: 0 8px 30px var(--glow)
-    }
-
-    .btn-o {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      color: var(--txt);
-      backdrop-filter: blur(8px)
-    }
-
-    .btn-o:hover {
-      border-color: var(--acc);
-      box-shadow: 0 0 20px var(--glow)
-    }
-
-    .hero-photo {
-      position: relative;
-      flex-shrink: 0
-    }
-
-    .hero-photo img {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--acc);
-      box-shadow: 0 0 50px var(--glow), 0 0 100px rgba(6, 182, 212, .15);
-      animation: hpulse 3s ease-in-out infinite
-    }
-
-    @keyframes hpulse {
-
-      0%,
-      100% {
-        box-shadow: 0 0 40px var(--glow)
-      }
-
-      50% {
-        box-shadow: 0 0 80px var(--glow), 0 0 120px rgba(6, 182, 212, .2)
-      }
-    }
-
-    .code-badge {
-      position: absolute;
-      bottom: 10px;
-      right: -10px;
-      background: linear-gradient(135deg, var(--acc), #2563eb);
-      border-radius: 50%;
-      padding: 13px;
-      box-shadow: 0 4px 20px var(--glow)
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      color: var(--muted);
-      font-size: .8rem;
-      animation: sbounce 2s ease-in-out infinite
-    }
-
-    @keyframes sbounce {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0)
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(8px)
-      }
-    }
-
-    /* ABOUT */
-    #about {
-      background: var(--surf)
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start
-    }
-
-    .about-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 18px
-    }
-
-    .about-text p,
-    .about-text li {
-      color: var(--muted);
-      margin-bottom: 12px
-    }
-
-    .about-text ul {
-      padding-left: 20px
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-      margin-top: 28px
-    }
-
-    .si {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--glass);
-      border: 1px solid var(--border);
-      transition: all .2s;
-      color: var(--muted)
-    }
-
-    .si:hover {
-      color: var(--txt);
-      border-color: var(--acc);
-      box-shadow: 0 0 16px var(--glow);
-      transform: translateY(-2px)
-    }
-
-    .about-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px
-    }
-
-    .ac {
-      padding: 26px;
-      text-align: center
-    }
-
-    .ac svg {
-      width: 38px;
-      height: 38px;
-      margin: 0 auto 12px;
-      color: var(--acc)
-    }
-
-    .ac h4 {
-      font-size: .95rem;
-      font-weight: 700;
-      margin-bottom: 6px
-    }
-
-    .ac p {
-      font-size: .82rem;
-      color: var(--muted)
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px
-    }
-
-    .skill-item {
-      margin-bottom: 22px
-    }
-
-    .skill-lbl {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-weight: 500;
-      font-size: .9rem
-    }
-
-    .skill-lbl span:last-child {
-      color: var(--muted)
-    }
-
-    .sk-track {
-      height: 7px;
-      background: rgba(255, 255, 255, .08);
-      border-radius: 4px;
-      overflow: hidden
-    }
-
-    .sk-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--acc), var(--cyan));
-      border-radius: 4px;
-      width: 0;
-      transition: width 1.2s cubic-bezier(.4, 0, .2, 1)
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px
-    }
-
-    .tp {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 16px;
-      font-size: .88rem;
-      font-weight: 500
-    }
-
-    .tp .ico {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(6, 182, 212, .15));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--cyan)
-    }
-
-    /* LANGUAGES */
-    #languages {
-      background: var(--surf)
-    }
-
-    .lang-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px
-    }
-
-    .lc {
-      padding: 30px 18px;
-      text-align: center
-    }
-
-    .lc svg {
-      margin: 0 auto 14px;
-      display: block
-    }
-
-    .lc h4 {
-      font-weight: 700;
-      margin-bottom: 6px
-    }
-
-    .lc .lvl {
-      font-size: .78rem;
-      color: var(--muted);
-      margin-bottom: 8px
-    }
-
-    .lbadge {
-      display: inline-block;
-      padding: 3px 14px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 700;
-      background: rgba(124, 58, 237, .15);
-      border: 1px solid rgba(124, 58, 237, .4);
-      color: #a78bfa;
-      letter-spacing: .04em
-    }
-
-    /* EDUCATION */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 26px
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--acc), var(--cyan))
-    }
-
-    .tli {
-      position: relative;
-      margin-bottom: 24px
-    }
-
-    .tli::before {
-      content: '';
-      position: absolute;
-      left: -22px;
-      top: 20px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--acc);
-      border: 2px solid var(--bg);
-      box-shadow: 0 0 10px var(--glow)
-    }
-
-    .tlc {
-      padding: 18px 22px
-    }
-
-    .tlc h4 {
-      font-size: .95rem;
-      font-weight: 700;
-      margin-bottom: 4px
-    }
-
-    .tlc .inst {
-      color: var(--muted);
-      font-size: .82rem
-    }
-
-    .tlc .yr {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: .75rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(6, 182, 212, .15));
-      color: var(--cyan)
-    }
-
-    .tlc .gpa {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 4px
-    }
-
-    .cert-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px
-    }
-
-    .cc {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 20px
-    }
-
-    .cc h4 {
-      font-size: .9rem;
-      font-weight: 600;
-      margin-bottom: 2px
-    }
-
-    .cc p {
-      font-size: .78rem;
-      color: var(--muted)
-    }
-
-    .cc .dt {
-      font-size: .75rem;
-      color: var(--acc);
-      white-space: nowrap;
-      font-family: 'JetBrains Mono', monospace
-    }
-
-    /* PROJECTS */
-    #projects {
-      background: var(--surf)
-    }
-
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px
-    }
-
-    .pc {
-      overflow: hidden
-    }
-
-    .pimg {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 16/9
-    }
-
-    .pimg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s
-    }
-
-    .pc:hover .pimg img {
-      transform: scale(1.07)
-    }
-
-    .pimg-ov {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(6, 8, 19, .95) 20%, transparent)
-    }
-
-    .pb {
-      padding: 22px
-    }
-
-    .pb h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 8px
-    }
-
-    .pb p {
-      color: var(--muted);
-      font-size: .83rem;
-      line-height: 1.6;
-      margin-bottom: 14px
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 18px
-    }
-
-    .tag {
-      padding: 3px 11px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 600;
-      background: rgba(124, 58, 237, .12);
-      border: 1px solid rgba(124, 58, 237, .3);
-      color: #a78bfa
-    }
-
-    .plinks {
-      display: flex;
-      gap: 8px
-    }
-
-    .pbtn {
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: .78rem;
-      font-weight: 600;
-      transition: all .2s;
-      border: 1px solid var(--border);
-      background: var(--glass);
-      color: var(--txt)
-    }
-
-    .pbtn:hover {
-      border-color: var(--acc);
-      box-shadow: 0 0 14px var(--glow)
-    }
-
-    .pbtn.pri {
-      background: var(--acc);
-      border-color: var(--acc);
-      color: #fff
-    }
-
-    .pbtn.pri:hover {
-      background: #6d28d9
-    }
-
-    /* CONTACT */
-    #contact {
-      background: var(--bg);
-      position: relative;
-      overflow: hidden
-    }
-
-    #contact::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124, 58, 237, .08), transparent)
-    }
-
-    .contact-in {
-      max-width: 580px;
-      margin: 0 auto;
-      text-align: center
-    }
-
-    .citems {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin: 40px 0;
-      text-align: left
-    }
-
-    .citem {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 22px;
-      border-radius: 14px;
-      background: var(--glass);
-      border: 1px solid var(--border)
-    }
-
-    .citem .ico {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--acc), #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0
-    }
-
-    .citem h4 {
-      font-size: .8rem;
-      color: var(--muted);
-      margin-bottom: 2px
-    }
-
-    .citem p,
-    .citem a {
-      font-size: .9rem;
-      font-weight: 500
-    }
-
-    .csoc {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 32px
-    }
-
-    .csb {
-      width: 50px;
-      height: 50px;
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--glass);
-      border: 1px solid var(--border);
-      transition: all .2s;
-      color: var(--muted)
-    }
-
-    .csb:hover {
-      color: var(--txt);
-      border-color: var(--acc);
-      box-shadow: 0 0 20px var(--glow);
-      transform: translateY(-3px)
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--surf);
-      padding: 28px 24px;
-      border-top: 1px solid var(--border)
-    }
-
-    .fi {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px
-    }
-
-    footer p {
-      color: var(--muted);
-      font-size: .82rem
-    }
-
-    /* MODAL */
-    .vmodal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .88);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      backdrop-filter: blur(10px)
-    }
-
-    .vmodal-box {
-      position: relative;
-      max-width: 900px;
-      width: 92%
-    }
-
-    .vmodal-close {
-      position: absolute;
-      top: -42px;
-      right: 0;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:900px) {
-
-      .hero-inner,
-      .about-grid,
-      .skills-grid,
-      .edu-grid {
-        grid-template-columns: 1fr
-      }
-
-      .hero-photo {
-        order: -1;
-        display: flex;
-        justify-content: center
-      }
-
-      .hero-text p {
-        max-width: 100%
-      }
-
-      .lang-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .proj-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .about-cards {
-        grid-template-columns: 1fr 1fr
-      }
-    }
-
-    @media(max-width:640px) {
-      section {
-        padding: 68px 0
-      }
-
-      .nav-links {
-        display: none
-      }
-
-      .ham {
-        display: flex
-      }
-
-      .proj-grid {
-        grid-template-columns: 1fr
-      }
-
-      .lang-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .fi {
-        flex-direction: column;
-        text-align: center
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Applies the saved theme before first paint, so the page never flashes the wrong colours. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <script src="script.js" defer></script>
+
+  <!-- Structured data: helps Google show your name, job and profiles correctly. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hadi K P",
+    "jobTitle": "Assistant Professor",
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "SAFI Institute of Advanced Study (Autonomous)",
+      "address": { "@type": "PostalAddress", "addressLocality": "Malappuram", "addressRegion": "Kerala", "addressCountry": "IN" }
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "APJ Abdul Kalam Technological University (KTU)" },
+      { "@type": "CollegeOrUniversity", "name": "University of Calicut" }
+    ],
+    "email": "mailto:hadikpkuniyil@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/hadi-kp/",
+      "https://github.com/Haadikp",
+      "https://www.kaggle.com/hadikp"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <!-- NAV -->
-  <nav>
-    <div class="nav-i">
-      <a href="#hero" class="nav-logo gt">Hadi K P</a>
-      <ul class="nav-links">
+  <!-- Icon sprite (Lucide-style line icons + brand marks). Inline = zero extra requests. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9V3Z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2Z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="b-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+    <symbol id="b-github" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></symbol>
+    <symbol id="b-kaggle" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234"/></symbol>
+    <symbol id="b-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    <symbol id="b-scholar" viewBox="0 0 24 24"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top" aria-label="Hadi K P, back to top">Hadi K P</a>
+
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#teaching">Teaching</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <!-- Uncomment once the Publications section has entries:
+        <li><a href="#publications">Publications</a></li> -->
+        <li><a href="#placement">Placement</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="ham" id="ham" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="drawer" id="drawer">
-    <a href="#about" onclick="closeDrawer()">About</a>
-    <a href="#skills" onclick="closeDrawer()">Skills</a>
-    <a href="#experience" onclick="closeDrawer()">Experience</a>
-    <a href="#education" onclick="closeDrawer()">Education</a>
-    <a href="#projects" onclick="closeDrawer()">Projects</a>
-    <a href="#contact" onclick="closeDrawer()">Contact</a>
-  </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-text" data-aos="fade-right" data-aos-duration="900">
-          <div class="chip">&#9729; Available for opportunities</div>
-          <h1>Hi, I'm <span class="gt">Hadi K P</span></h1>
-          <p>Data Scientist &amp; Software Engineer. Building scalable backends, ML pipelines, and data-driven
-            solutions. Kaggle Expert &bull; UGC NET Qualified &bull; MCA Graduate.</p>
-          <div class="hero-btns">
-            <a href="#projects" class="btn btn-p"> View My Work</a>
-            <a href="Images/Resume.pdf" download class="btn btn-o"> Get Resume</a>
-          </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="eyebrow">Department of CS &amp; AI · SAFI Institute of Advanced Study (Autonomous)</p>
+        <h1 id="hero-title">Hadi K P</h1>
+        <p class="hero-role">Assistant Professor &amp; Placement Coordinator</p>
+        <p class="hero-intro">I teach computer science and AI to undergraduates in Malappuram, Kerala, with a background in data science, machine learning and software development.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#teaching">Teaching &amp; courses
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="Images/Resume.pdf" download>
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download CV</a>
+          <a class="btn btn-ghost" href="#contact">Contact</a>
         </div>
-        <div class="hero-photo" data-aos="fade-left" data-aos-duration="900">
-          <img src="Images/Hadi K P.png" alt="Hadi K P image">
-          <div class="code-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
+        <ul class="hero-facts" aria-label="Highlights">
+          <li><strong>UGC NET</strong><span>Computer Science, Dec 2024</span></li>
+          <li><strong>Kaggle Expert</strong><span>Notebooks</span></li>
+          <li><strong>MCA</strong><span>KTU, 2023 – 2025</span></li>
+        </ul>
+      </div>
+      <figure class="hero-photo">
+        <!-- Tip: export this photo as a ~600x750 WebP/JPG under 150 KB and update the src. -->
+        <img src="Images/Hadi%20K%20P.png" alt="Portrait of Hadi K P" width="480" height="600" fetchpriority="high" decoding="async">
+      </figure>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="about-title">About</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="prose reveal">
+            <p>I am an Assistant Professor in the Department of Computer Science &amp; Artificial Intelligence at SAFI Institute of Advanced Study (Autonomous), Malappuram, where I also serve as the department's Placement Coordinator. Before joining SAFI, I taught in the MCA department at KMCT College of Engineering.</p>
+            <p>My path into teaching runs through mathematics and applied data science: a BSc in Mathematics from the University of Calicut, an MCA from KTU, and a data science internship at Sabudh Foundation, where I worked on an AI-driven resume and job description analysis platform. I qualified UGC NET in Computer Science in December 2024.</p>
+            <p>I work mainly in Python, with Flask, MySQL and the standard data science stack (Pandas, NumPy, Scikit-learn, TensorFlow), and I am a Kaggle Expert in Notebooks.</p>
+            <!-- TODO (RESEARCH INTERESTS): add one sentence naming 2–4 specific research interests,
+                 e.g. "My research interests are ___, ___ and ___." Hiring committees look for this first. -->
+          </div>
+
+          <div class="timeline-wrap reveal">
+            <h3 class="sub-title"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg> Experience</h3>
+            <ol class="timeline">
+              <li>
+                <p class="tl-date">Jun 2026 – Present</p>
+                <h4>Assistant Professor</h4>
+                <p class="tl-org">SAFI Institute of Advanced Study (Autonomous), Malappuram</p>
+                <p class="tl-note">Department of CS &amp; AI. Undergraduate teaching; Placement Coordinator.</p>
+              </li>
+              <li>
+                <p class="tl-date">Jan 2026 – May 2026</p>
+                <h4>Assistant Professor</h4>
+                <p class="tl-org">KMCT College of Engineering, MCA Department</p>
+                <p class="tl-note">Postgraduate courses and Java laboratory sessions.</p>
+              </li>
+              <li>
+                <p class="tl-date">Jul 2025 – Dec 2025</p>
+                <h4>Data Science Intern</h4>
+                <p class="tl-org">Sabudh Foundation, Punjab (Remote)</p>
+                <p class="tl-note">Applied ML and NLP with Python and SQL on the AI for Education project; Team Representative.</p>
+              </li>
+            </ol>
+
+            <h3 class="sub-title"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg> Education</h3>
+            <ol class="timeline">
+              <li>
+                <p class="tl-date">2023 – 2025</p>
+                <h4>Master of Computer Applications</h4>
+                <p class="tl-org">KTU University</p>
+              </li>
+              <li>
+                <p class="tl-date">2020 – 2023</p>
+                <h4>BSc Mathematics</h4>
+                <p class="tl-org">University of Calicut</p>
+              </li>
+              <li>
+                <p class="tl-date">2018 – 2020</p>
+                <h4>Plus Two (Science)</h4>
+                <p class="tl-org">Kerala State Board · 88%</p>
+              </li>
+              <li>
+                <p class="tl-date">2017 – 2018</p>
+                <h4>SSLC</h4>
+                <p class="tl-org">Kerala State Board · A+ (100%)</p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
-    </div>
-    <div class="scroll-hint"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>Scroll</div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>About <span class="gt">Me</span></h2>
-        <div class="bar"></div>
+    <!-- ================= TEACHING ================= -->
+    <section class="section section-alt" id="teaching" aria-labelledby="teaching-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="teaching-title">Teaching &amp; Courses</h2>
+          <p class="section-lede">I teach with students' starting point in mind: foundations first, worked examples, and plenty of hands-on lab time.</p>
+        </header>
+
+        <div class="card-grid two">
+          <article class="card reveal">
+            <p class="card-kicker">Current · Jun 2026 – Present</p>
+            <h3>SAFI Institute of Advanced Study (Autonomous)</h3>
+            <p class="card-sub">BSc Computer Science and BSc AI, Department of CS &amp; AI</p>
+            <!-- TODO (SAFI COURSES): list the papers you teach this semester, one <li> each, e.g.
+                 <li><span class="course">Course title</span><span class="course-meta">BSc AI · Semester 3</span></li> -->
+            <ul class="course-list">
+              <li><span class="course">Undergraduate courses in Computer Science and AI</span></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">Previous · Jan 2026 – May 2026</p>
+            <h3>KMCT College of Engineering</h3>
+            <p class="card-sub">MCA Department (postgraduate)</p>
+            <ul class="course-list">
+              <li><span class="course">Advanced Database Management Systems</span><span class="course-meta">MCA, theory</span></li>
+              <li><span class="course">Object Oriented Programming Laboratory</span><span class="course-meta">MCA, Java lab</span></li>
+            </ul>
+            <p class="card-text">Ran Java lab sessions focused on object-oriented design, implementation and problem-solving, aligned with curriculum objectives and assessment requirements.</p>
+          </article>
+        </div>
+        <!-- TODO (TEACHING MATERIALS, optional): link public notes, slides or lab manuals here
+             if you want students to find them from this page. -->
       </div>
-      <div class="about-grid">
-        <div data-aos="fade-right">
-          <h3>Who I Am</h3>
-          <p>A passionate Data Science enthusiast and MCA graduate bridging academia and industry through hands-on
-            experience and a deep commitment to continuous learning.</p>
-          <ul>
-            <li>UGC NET Qualified (Computer Science) — recognizing my dedication to education and research.</li>
-            <li>Proficient in Python, Flask, MySQL, and data science libraries (Pandas, NumPy, Scikit-learn,
-              TensorFlow).</li>
-            <li>Built impactful projects: Personal Finance System, AI Job Analyzer, Image Colorization using GANs.</li>
-            <li>Kaggle Expert (Notebooks) — recognized for practical, well-documented data science solutions.</li>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="projects-title">Research &amp; Projects</h2>
+        </header>
+        <!-- TODO (RESEARCH): when you have a research project, thesis, or ongoing work,
+             add a card above the projects grid describing the question, method and status. -->
+
+        <div class="card-grid three">
+          <article class="project card reveal">
+            <div class="project-img">
+              <img src="Images/Job_analyzer_AI.png" alt="Screenshot of the AI Job Analyzer interface" width="640" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <h3>AI Job Analyzer</h3>
+              <p class="card-text">AI-powered career assistant using LangChain, Groq and Gradio to extract job requirements, parse resumes, match skills and generate tailored interview questions.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Python</li><li>LangChain</li><li>GenAI / LLMs</li><li>Gradio</li>
+              </ul>
+              <div class="project-links">
+                <a class="link" href="https://github.com/Haadikp/Job-Aanalyzer-AI" target="_blank" rel="noopener">
+                  <svg class="icon icon-fill" aria-hidden="true"><use href="#b-github"/></svg> Code<span class="sr-only"> for AI Job Analyzer (opens in new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card reveal">
+            <div class="project-img">
+              <img src="Images/Result2-webpg.png" alt="Grayscale photo next to its GAN-colourised version" width="640" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <h3>Image Colourisation using GANs</h3>
+              <p class="card-text">Colourisation system using Generative Adversarial Networks with PyTorch and Flask that converts grayscale images into realistic colour images.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>PyTorch</li><li>GANs</li><li>Flask</li><li>NumPy</li>
+              </ul>
+              <div class="project-links">
+                <button class="link" type="button" data-video="Images/Image_colorization_using_gans.mp4" data-video-title="Image Colourisation using GANs demo">
+                  <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> Demo video</button>
+                <a class="link" href="https://github.com/Haadikp/Image_Colourization" target="_blank" rel="noopener">
+                  <svg class="icon icon-fill" aria-hidden="true"><use href="#b-github"/></svg> Code<span class="sr-only"> for Image Colourisation (opens in new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card reveal">
+            <div class="project-img">
+              <img src="Images/home%20page.png" alt="Home page of the Personal Finance Management System" width="640" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <h3>Personal Finance Management System</h3>
+              <p class="card-text">Web application to track and manage personal finances, with a Python Flask backend, HTML/CSS frontend and MySQL database.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Flask</li><li>HTML &amp; CSS</li><li>MySQL</li>
+              </ul>
+              <div class="project-links">
+                <a class="link" href="https://finance-manager-eight-rho.vercel.app/" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg> Live app<span class="sr-only"> (opens in new tab)</span></a>
+                <a class="link" href="https://github.com/Haadikp/FinanceManager" target="_blank" rel="noopener">
+                  <svg class="icon icon-fill" aria-hidden="true"><use href="#b-github"/></svg> Code<span class="sr-only"> for Finance Manager (opens in new tab)</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PUBLICATIONS =================
+         TODO (PUBLICATIONS): this section is hidden because there are no entries yet.
+         To show it:
+           1. Delete the word  hidden  from the <section> tag below.
+           2. Replace the commented example with your real papers (newest first).
+           3. Uncomment the "Publications" link in the nav at the top.
+         Include: authors (your name in <strong>), title, venue, year, and a DOI or PDF link.
+    ===================================================== -->
+    <section class="section section-alt" id="publications" aria-labelledby="pubs-title" hidden>
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="pubs-title">Publications</h2>
+        </header>
+        <ol class="pub-list">
+          <!-- Example format, copy once per paper:
+          <li class="pub reveal">
+            <p class="pub-title">Paper title</p>
+            <p class="pub-authors"><strong>Hadi K P</strong>, Co-author Name</p>
+            <p class="pub-venue">Journal or Conference Name, Year</p>
+            <a class="link" href="https://doi.org/..." target="_blank" rel="noopener">DOI</a>
+          </li>
+          -->
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= PLACEMENT ================= -->
+    <section class="section" id="placement" aria-labelledby="placement-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="placement-title">Placement &amp; Student Achievements</h2>
+        </header>
+
+        <div class="card-grid two">
+          <article class="card reveal">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-users"/></svg>
+            <h3>Placement Coordinator</h3>
+            <p class="card-sub">Department of CS &amp; AI, SAFI Institute of Advanced Study (Autonomous)</p>
+            <!-- TODO (PLACEMENT ROLE): add 2–4 short lines on what you actually do in this role,
+                 e.g. drives organised, training sessions run, companies engaged. Only real, verifiable items. -->
+            <p class="card-text">Recruiters and companies interested in hiring from the department are welcome to get in touch.</p>
+            <a class="btn btn-primary btn-sm" href="mailto:hadikpkuniyil@gmail.com?subject=Campus%20recruitment%20%E2%80%93%20Dept.%20of%20CS%20%26%20AI%2C%20SAFI">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Email about recruitment</a>
+          </article>
+
+          <article class="card reveal">
+            <svg class="icon icon-lg" aria-hidden="true"><use href="#i-award"/></svg>
+            <h3>Student Achievements</h3>
+            <!-- TODO (STUDENT ACHIEVEMENTS): replace the paragraph below with a list once you have
+                 real outcomes, e.g.
+                 <ul class="course-list">
+                   <li><span class="course">N students placed at Company</span><span class="course-meta">2026–27</span></li>
+                   <li><span class="course">Hackathon / competition result</span><span class="course-meta">Event, Year</span></li>
+                 </ul>
+                 Get students' consent before naming them. -->
+            <p class="card-text muted">Placement outcomes and student achievements will be listed here.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="skills-title">Skills &amp; Certifications</h2>
+        </header>
+
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Programming</h3>
+            <ul class="tags">
+              <li>Python</li><li>C</li><li>Java</li><li>SQL / MySQL</li><li>HTML &amp; CSS</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Data Science &amp; ML</h3>
+            <ul class="tags">
+              <li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>TensorFlow</li><li>PyTorch</li><li>NLP</li><li>LangChain</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Web &amp; Tools</h3>
+            <ul class="tags">
+              <li>Flask</li><li>Gradio</li><li>Git &amp; GitHub</li><li>Dataiku</li><li>VS Code</li><li>PyCharm</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Languages</h3>
+            <ul class="lang-list">
+              <li><span>Malayalam</span><span class="muted">Native</span></li>
+              <li><span>English</span><span class="muted">Professional, fluent</span></li>
+              <li><span>Hindi</span><span class="muted">Conversational</span></li>
+              <li><span>Arabic</span><span class="muted">Elementary</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="sub-title cert-title reveal"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg> Certifications</h3>
+        <ul class="cert-list reveal">
+          <li><span class="cert-name">UGC NET, Computer Science</span><span class="cert-org">Qualified for Assistant Professor</span><span class="cert-date">Dec 2024</span></li>
+          <li><span class="cert-name">IBM Data Science Professional Certificate</span><span class="cert-org">IBM</span><span class="cert-date">Feb 2026</span></li>
+          <li><span class="cert-name">Dataiku Professional Certifications</span><span class="cert-org">Dataiku</span><span class="cert-date">Oct 2025</span></li>
+          <li><span class="cert-name">Intermediate Machine Learning</span><span class="cert-org">Kaggle</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Intro to Machine Learning</span><span class="cert-org">Kaggle</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Data Analytics</span><span class="cert-org">YBI Foundation</span><span class="cert-date">Oct 2024</span></li>
+          <li><span class="cert-name">Python for Data Science</span><span class="cert-org">IBM / Coursera</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Database Management Systems</span><span class="cert-org">IIT Kharagpur (NPTEL)</span><span class="cert-date">Apr 2024</span></li>
+          <li><span class="cert-name">Introduction to Microsoft Excel</span><span class="cert-org">Coursera Project Network</span><span class="cert-date">Mar 2024</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="contact-title">Contact</h2>
+          <p class="section-lede">Students, colleagues and recruiters: email is the quickest way to reach me.</p>
+        </header>
+
+        <div class="contact-grid reveal">
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <div><p class="contact-label">Email</p><a href="mailto:hadikpkuniyil@gmail.com">hadikpkuniyil@gmail.com</a></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <div><p class="contact-label">Phone</p><a href="tel:+918078096803">+91&nbsp;80780&nbsp;96803</a></div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+              <div><p class="contact-label">Location</p><p>Kerala, India</p></div>
+            </li>
           </ul>
-          <p>I thrive in collaborative, innovation-driven teams and am eager to contribute skills in software
-            development, data analytics, and machine learning.</p>
-          <div class="socials">
-            <a class="si" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg
-                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg></a>
-            <a class="si" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg"
-                width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg></a>
-            <a class="si" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg
-                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234" />
-              </svg></a>
-            <a class="si" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg
-                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-              </svg></a>
-          </div>
-        </div>
-        <div class="about-cards" data-aos="fade-left">
-          <div class="card ag ac">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            <h4>Data Science</h4>
-            <p>ML pipelines and complex data analysis</p>
-          </div>
-          <div class="card ag ac">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-            <h4>Engineering</h4>
-            <p>Scalable, production-grade software</p>
-          </div>
-          <div class="card ag ac">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-            <h4>Research</h4>
-            <p>Emerging technologies and AI methods</p>
-          </div>
-          <div class="card ag ac">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <h4>Teaching</h4>
-            <p>UGC NET qualified educator</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>My <span class="gt">Skills</span></h2>
-        <div class="bar"></div>
-      </div>
-      <div class="skills-grid">
-        <div data-aos="fade-right">
-          <h3 style="margin-bottom:32px;font-size:1.3rem">Technical Proficiency</h3>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>Python</span><span>80%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="80"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>HTML &amp; CSS</span><span>75%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="75"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>C</span><span>80%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="80"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>MySQL</span><span>70%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="70"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>Flask</span><span>80%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="80"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-lbl"><span>Java</span><span>40%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-pct="40"></div>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-left">
-          <h3 style="margin-bottom:32px;font-size:1.3rem">Tools &amp; Technologies</h3>
-          <div class="tools-grid">
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg></div>Pandas &amp; NumPy
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                </svg></div>TensorFlow
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                </svg></div>MySQL
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg></div>Flask
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                </svg></div>GitHub
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <circle cx="6" cy="12" r="2" />
-                  <circle cx="18" cy="6" r="2" />
-                  <circle cx="18" cy="18" r="2" />
-                  <line x1="8" y1="12" x2="16" y2="6" stroke-width="2" />
-                  <line x1="8" y1="12" x2="16" y2="18" stroke-width="2" />
-                </svg></div>Scikit-learn
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg></div>VS Code
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg></div>PyCharm
-            </div>
-            <div class="card ag tp">
-              <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m-4-4v8" />
-                </svg></div>Dataiku
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- LANGUAGES -->
-  <section id="languages">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>Languages <span class="gt">Known</span></h2>
-        <div class="bar"></div>
-      </div>
-      <div class="lang-grid" data-aos="fade-up">
-        <div class="card ag lc">
-          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 60 30">
-            <clipPath id="a">
-              <path d="M0 0v30h60V0z" />
-            </clipPath>
-            <clipPath id="b">
-              <path d="M30 15h30v15zv15H0zH0V0zV0h30z" />
-            </clipPath>
-            <g clip-path="url(#a)">
-              <path d="M0 0v30h60V0z" fill="#012169" />
-              <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6" />
-              <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4" />
-              <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
-              <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6" />
-            </g>
-          </svg>
-          <h4>English</h4>
-          <p class="lvl">Professional</p><span class="lbadge">FLUENT</span>
-        </div>
-        <div class="card ag lc">
-          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
-            <path fill="#F93" d="M0 0h900v200H0z" />
-            <path fill="#FFF" d="M0 200h900v200H0z" />
-            <path fill="#128807" d="M0 400h900v200H0z" />
-            <g transform="translate(450,300)">
-              <circle r="80" fill="#FFF" />
-              <circle r="16" fill="#008" />
-            </g>
-          </svg>
-          <h4>Hindi</h4>
-          <p class="lvl">Conversational</p><span class="lbadge">BASIC</span>
-        </div>
-        <div class="card ag lc">
-          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
-            <path fill="#F93" d="M0 0h900v200H0z" />
-            <path fill="#FFF" d="M0 200h900v200H0z" />
-            <path fill="#128807" d="M0 400h900v200H0z" />
-            <g transform="translate(450,300)">
-              <circle r="80" fill="#FFF" />
-              <circle r="16" fill="#008" />
-            </g>
-          </svg>
-          <h4>Malayalam</h4>
-          <p class="lvl">Mother Tongue</p><span class="lbadge">NATIVE</span>
-        </div>
-        <div class="card ag lc">
-          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="28" viewBox="0 0 900 600">
-            <rect width="900" height="600" fill="#006C35" />
-            <path d="M250 180 Q230 165 250 150 L550 150 Q570 138 590 150 L590 180 Q570 193 550 180 L250 180"
-              fill="#FFF" />
-          </svg>
-          <h4>Arabic</h4>
-          <p class="lvl">Elementary</p><span class="lbadge">BASIC</span>
+          <ul class="social-list" aria-label="Profiles">
+            <li><a href="https://www.linkedin.com/in/hadi-kp/" target="_blank" rel="noopener">
+              <svg class="icon icon-fill" aria-hidden="true"><use href="#b-linkedin"/></svg> LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li><a href="https://github.com/Haadikp" target="_blank" rel="noopener">
+              <svg class="icon icon-fill" aria-hidden="true"><use href="#b-github"/></svg> GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+            <!-- TODO (GOOGLE SCHOLAR): create a profile at https://scholar.google.com/citations,
+                 then uncomment this item and paste your profile URL in href.
+            <li><a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">
+              <svg class="icon icon-fill" aria-hidden="true"><use href="#b-scholar"/></svg> Google Scholar<span class="sr-only"> (opens in new tab)</span></a></li>
+            -->
+            <li><a href="https://www.kaggle.com/hadikp" target="_blank" rel="noopener">
+              <svg class="icon icon-fill" aria-hidden="true"><use href="#b-kaggle"/></svg> Kaggle<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li><a href="https://www.instagram.com/haadi.kp" target="_blank" rel="noopener">
+              <svg class="icon icon-fill" aria-hidden="true"><use href="#b-instagram"/></svg> Instagram<span class="sr-only"> (opens in new tab)</span></a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>Professional <span class="gt">Experience</span></h2>
-        <div class="bar"></div>
-      </div>
-       <div class="timeline" style="max-width: 800px; margin: 0 auto;" data-aos="fade-up">
-        <div class="tli">
-          <div class="card ag tlc" style="padding: 24px;">
-            <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Assistant Professor</h4>
-            <span class="inst" style="font-size: 0.95rem;">SAFI Institute Of Advanced Study</span>
-            <div class="yr">Jun 2026 – Present</div>
-            <ul style="color: var(--muted); font-size: 0.9rem; margin-top: 16px; padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Handling undergraduate-level courses </li>
-              <!-- <li style="margin-bottom: 8px;">Conducting laboratory sessions in Java with focus on object-oriented design, implementation, and problem-solving.</li>
-              <li>Supporting students through practical instruction aligned with curriculum objectives and assessment requirements.</li> -->
-            </ul>
-          </div>
-        </div>
-      <!-- <div class="timeline" style="max-width: 800px; margin: 0 auto;" data-aos="fade-up"> -->
-        <div class="tli">
-          <div class="card ag tlc" style="padding: 24px;">
-            <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Assistant Professor</h4>
-            <span class="inst" style="font-size: 0.95rem;">KMCT College of Engineering</span>
-            <div class="yr">Jan 2026 – May 2026</div>
-            <ul style="color: var(--muted); font-size: 0.9rem; margin-top: 16px; padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Handling postgraduate-level courses including Advanced Database Management Systems and Object Oriented Programming Laboratory.</li>
-              <li style="margin-bottom: 8px;">Conducting laboratory sessions in Java with focus on object-oriented design, implementation, and problem-solving.</li>
-              <li>Supporting students through practical instruction aligned with curriculum objectives and assessment requirements.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tli">
-          <div class="card ag tlc" style="padding: 24px;">
-            <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Data Science Intern</h4>
-            <span class="inst" style="font-size: 0.95rem;">Sabudh Foundation, Punjab (Remote)</span>
-            <div class="yr">Jul 2025 – Dec 2025</div>
-            <ul style="color: var(--muted); font-size: 0.9rem; margin-top: 16px; padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Contributed to applied data science and machine learning tasks involving Python, SQL, and natural language processing.</li>
-              <li style="margin-bottom: 8px;">Supported the design and development of the AI for Education project, an AI-driven resume and job description analysis platform for evaluating career readiness.</li>
-              <li>Coordinated team activities and communication as Team Representative, supporting timely execution of project deliverables.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- EDUCATION & CERTS -->
-  <section id="education" style="background:var(--surf)">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>Education &amp; <span class="gt">Certifications</span></h2>
-        <div class="bar"></div>
-      </div>
-      <div class="edu-grid">
-        <div data-aos="fade-right">
-          <h3 style="font-size:1.3rem;margin-bottom:32px">Academic Background</h3>
-          <div class="timeline">
-            <div class="tli">
-              <div class="card ag tlc">
-                <h4>Master of Computer Applications</h4><span class="inst">KTU University</span>
-                <div class="yr">2023 – 2025</div>
-                <!-- <p class="gpa">CGPA: 7.95 / 10</p> -->
-              </div>
-            </div>
-            <div class="tli">
-              <div class="card ag tlc">
-                <h4>BSc. Mathematics</h4><span class="inst">University of Calicut</span>
-                <div class="yr">2020 – 2023</div>
-                <!-- <p class="gpa">CGPA: 7.1 / 10</p> -->
-              </div>
-            </div>
-            <div class="tli">
-              <div class="card ag tlc">
-                <h4>Plus Two (Science)</h4><span class="inst">Kerala State Board</span>
-                <div class="yr">2018 – 2020</div>
-                <p class="gpa">Percentage: 88%</p>
-              </div>
-            </div>
-            <div class="tli">
-              <div class="card ag tlc">
-                <h4>SSLC</h4><span class="inst">Kerala State Board</span>
-                <div class="yr">2017 – 2018</div>
-                <p class="gpa">Grade: A+ (100%)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-left">
-          <h3 style="font-size:1.3rem;margin-bottom:32px">Certifications</h3>
-          <div class="cert-list">
-            <div class="card ag cc">
-              <div>
-                <h4>UGC NET — Computer Science</h4>
-                <p>Qualified for Assistant Professor</p>
-              </div><span class="dt">Dec 2024</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>IBM Data Science Professional Certificate</h4>
-                <p>IBM</p>
-              </div><span class="dt">Feb 2026</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Dataiku Professional Certifications</h4>
-                <p>Dataiku</p>
-              </div><span class="dt">Oct 2025</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Intermediate Machine Learning</h4>
-                <p>Kaggle</p>
-              </div><span class="dt">Jun 2025</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Intro to Machine Learning</h4>
-                <p>Kaggle</p>
-              </div><span class="dt">Jun 2025</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Data Analytics</h4>
-                <p>YBI Foundation</p>
-              </div><span class="dt">Oct 2024</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Python for Data Science</h4>
-                <p>IBM / Coursera</p>
-              </div><span class="dt">Jun 2024</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Database Management Systems</h4>
-                <p>IIT Kharagpur (NPTEL)</p>
-              </div><span class="dt">Apr 2024</span>
-            </div>
-            <div class="card ag cc">
-              <div>
-                <h4>Introduction to Microsoft Excel</h4>
-                <p>Coursera Project Network</p>
-              </div><span class="dt">Mar 2024</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="sec-head" data-aos="fade-up">
-        <h2>Featured <span class="gt">Projects</span></h2>
-        <div class="bar"></div>
-      </div>
-      <div class="proj-grid">
-        <div class="card ag pc" data-aos="fade-up" data-aos-delay="100">
-          <div class="pimg"><img src="Images/Job_analyzer_AI.png" alt="AI Job Analyzer">
-            <div class="pimg-ov"></div>
-          </div>
-          <div class="pb">
-            <h3>AI Job Analyzer</h3>
-            <p>AI-powered career assistant using LangChain, Groq &amp; Gradio to extract job requirements, parse
-              resumes, match skills and generate tailored interview questions.</p>
-            <div class="tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">GenAI /
-                LLMs</span><span class="tag">Gradio</span></div>
-            <div class="plinks"><a href="https://github.com/Haadikp/Job-Aanalyzer-AI" class="pbtn">&#128279; GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="card ag pc" data-aos="fade-up" data-aos-delay="200">
-          <div class="pimg"><img src="Images/Result2-webpg.png" alt="Image Colorization">
-            <div class="pimg-ov"></div>
-          </div>
-          <div class="pb">
-            <h3>Image Colorization using GANs</h3>
-            <p>Colorization system using Generative Adversarial Networks with PyTorch &amp; Flask to convert grayscale
-              images into realistic color representations.</p>
-            <div class="tags"><span class="tag">PyTorch</span><span class="tag">GANs</span><span
-                class="tag">Flask</span><span class="tag">NumPy</span></div>
-            <div class="plinks">
-              <a href="#" onclick="openVideo('project2');return false" class="pbtn pri">&#9654; Demo</a>
-              <a href="https://github.com/Haadikp/Image_Colourization" class="pbtn">&#128279; GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="card ag pc" data-aos="fade-up" data-aos-delay="300">
-          <div class="pimg"><img src="Images/home page.png" alt="Finance Manager">
-            <div class="pimg-ov"></div>
-          </div>
-          <div class="pb">
-            <h3>Personal Finance Management System</h3>
-            <p>Web-based application using Python Flask for backend, HTML/CSS for frontend and MySQL for database
-              management to track and manage finances.</p>
-            <div class="tags"><span class="tag">Flask</span><span class="tag">HTML &amp; CSS</span><span
-                class="tag">MySQL</span></div>
-            <div class="plinks">
-              <a href="https://finance-manager-eight-rho.vercel.app/" target="_blank" class="pbtn pri"> Live App</a>
-              <a href="https://github.com/Haadikp/FinanceManager" class="pbtn">&#128279; GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-in">
-        <div class="sec-head" data-aos="fade-up">
-          <h2>Get In <span class="gt">Touch</span></h2>
-          <p>I am always open to new opportunities and collaborations.</p>
-          <div class="bar"></div>
-        </div>
-        <div class="citems" data-aos="fade-up">
-          <div class="citem">
-            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg></div>
-            <div>
-              <h4>Email</h4><a href="mailto:hadikpkuniyil@gmail.com">hadikpkuniyil@gmail.com</a>
-            </div>
-          </div>
-          <div class="citem">
-            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg></div>
-            <div>
-              <h4>Phone</h4>
-              <p>+91 8078096803</p>
-            </div>
-          </div>
-          <div class="citem">
-            <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg></div>
-            <div>
-              <h4>Location</h4>
-              <p>Kerala, India</p>
-            </div>
-          </div>
-        </div>
-        <div class="csoc" data-aos="fade-up">
-          <a class="csb" href="https://www.linkedin.com/in/hadi-kp/" aria-label="LinkedIn"><svg
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-            </svg></a>
-          <a class="csb" href="https://github.com/Haadikp" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg"
-              width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg></a>
-          <a class="csb" href="https://www.kaggle.com/hadikp" aria-label="Kaggle"><svg
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.247.495-.247h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.234" />
-            </svg></a>
-          <a class="csb" href="https://www.instagram.com/haadi.kp" aria-label="Instagram"><svg
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="fi">
-      <div>
-        <p class="gt" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:4px">Hadi K P
-        </p>
-        <p>Data Scientist &amp; Software Engineer</p>
-      </div>
-      <p>&#169; 2025 Hadi K P &mdash; Built with passion</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Hadi K P · Assistant Professor, Department of CS &amp; AI, SAFI Institute of Advanced Study (Autonomous)</p>
+      <a href="#top" class="link">Back to top</a>
     </div>
   </footer>
-  <!-- VIDEO MODAL -->
-  <div class="vmodal" id="vmodal" style="display:none">
-    <div class="vmodal-box">
-      <button class="vmodal-close" onclick="closeVideo()">&times;</button>
-      <video id="vplayer" controls style="width:100%;border-radius:12px"></video>
+
+  <!-- Demo video player (native <dialog>: keyboard and screen-reader friendly) -->
+  <dialog class="video-dialog" id="video-dialog" aria-label="Project demo video">
+    <div class="video-head">
+      <p class="video-title" id="video-title">Demo</p>
+      <button class="icon-btn" type="button" id="video-close" aria-label="Close video">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
     </div>
-  </div>
-
-  <script>
-    // AOS
-    AOS.init({ duration: 700, once: true, offset: 60 });
-
-    // Mobile drawer
-    const ham = document.getElementById('ham'), drawer = document.getElementById('drawer');
-    ham.addEventListener('click', () => drawer.classList.toggle('open'));
-    function closeDrawer() { drawer.classList.remove('open') }
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navAs = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let cur = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id });
-      navAs.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur) });
-    }, { passive: true });
-
-    // Skill bars on scroll
-    const fills = document.querySelectorAll('.sk-fill');
-    const skObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.pct + '%'; skObs.unobserve(e.target) } });
-    }, { threshold: 0.3 });
-    fills.forEach(f => skObs.observe(f));
-
-    // Video modal
-    function openVideo(id) {
-      const urls = { 'project2': 'Images/Image_colorization_using_gans.mp4' };
-      const v = document.getElementById('vplayer');
-      v.src = urls[id] || ''; v.play();
-      const m = document.getElementById('vmodal'); m.style.display = 'flex';
-      m.onclick = e => { if (e.target === m) closeVideo() };
-      document.body.style.overflow = 'hidden';
-    }
-    function closeVideo() {
-      const v = document.getElementById('vplayer'); v.pause(); v.src = '';
-      document.getElementById('vmodal').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo() });
-
-    // ANTIGRAVITY — requestAnimationFrame repel + tilt
-    const agEls = document.querySelectorAll('.ag');
-    let mx = 0, my = 0, rafId = null, isMoving = false;
-
-    // Randomise float duration & delay for natural feel
-    agEls.forEach(el => {
-      el.style.animationDuration = (4 + Math.random() * 4).toFixed(1) + 's';
-      el.style.animationDelay = (Math.random() * -4).toFixed(2) + 's';
-    });
-
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; if (!isMoving) { isMoving = true; rafId = requestAnimationFrame(tickAG); } }, { passive: true });
-    document.addEventListener('mouseleave', () => { isMoving = false; cancelAnimationFrame(rafId); agEls.forEach(el => { el.style.transform = ''; el.style.zIndex = ''; }); });
-
-    function tickAG() {
-      agEls.forEach(el => {
-        const r = el.getBoundingClientRect();
-        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        const dx = mx - cx, dy = my - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxD = 300;
-        if (dist < maxD && dist > 0) {
-          const f = Math.pow((maxD - dist) / maxD, 1.3);
-          const rx = -(dx / dist) * f * 18;
-          const ry = -(dy / dist) * f * 18;
-          const tx = (dy / r.height) * f * 12;
-          const ty = -(dx / r.width) * f * 12;
-          el.style.transform = `translate(${rx}px,${ry}px) rotateX(${tx}deg) rotateY(${ty}deg) scale(${1 + f * .04})`;
-          el.style.zIndex = '10';
-        } else {
-          el.style.transform = ''; el.style.zIndex = '';
-        }
-      });
-      if (isMoving) rafId = requestAnimationFrame(tickAG);
-    }
-  </script>
+    <video id="video-player" controls preload="none" playsinline></video>
+  </dialog>
 </body>
-
 </html>
